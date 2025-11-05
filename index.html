@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="icon" href="img/AllevoFoodIcono.png" type="image/png">
+    <meta name="description"
+        content="Allevo Foods S.A. es una empresa guatemalteca dedicada al desarrollo y producción de alimentos para el sector food service, ofreciendo soluciones eficientes y de calidad para restaurantes, hoteles y cafeterías.">
+    <title>Allevo Foods</title>
+
+    <meta property="og:title" content="Allevo Foods - Precisión, Agilidad y Confianza">
+    <meta property="og:description"
+        content="El aliado de tu restaurante. Producción y desarrollo de alimentos para food service en Guatemala.">
+    <meta property="og:image" content="https://allevofoods.com/img/AllevoFoodIcono.png">
+    <meta property="og:url" content="https://allevofoods.com">
+    <meta property="og:type" content="website">
+    <style id="dynamic-css"></style>
+    <style type="text/css">
+        h1,
+        h2,
+        h3,
+        h4,
+        p {
+            font-family: 'Neue Haas Unica', sans-serif;
+            line-height: auto;
+            letter-spacing: 0;
+        }
+
+        h1 {
+            font-size: 53px;
+            font-weight: 500;
+            /* Medium */
+        }
+
+        h2 {
+            font-size: 43px;
+            font-weight: 500;
+        }
+
+        h3 {
+            font-size: 32px;
+            font-weight: 500;
+        }
+
+        h4.h4-class1 {
+            font-size: 21px;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        h4.h4-class2 {
+            font-size: 21px;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+
+        p {
+            font-size: 21px;
+            font-weight: 300;
+            /* Light */
+        }
+         /* GENERAL PARA HEADER Y FOOTER */
+        .logo img,
+        .footer-item img {
+        display: inline-block;
+        }
+
+        .logo .logo-type-2,
+        .footer-item .logo-type-2 {
+        display: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .logo img,
+            .footer-item img {
+                display: none;
+            }
+
+            .logo .logo-type-2,
+            .footer-item .logo-type-2 {
+                display: inline-block;
+            }
+        }
+        .row.justify-content-center {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* importante para que sigan siendo responsivas */
+        }
+        .preloader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            text-align: center;
+            z-index: 6001;
+        }
+
+        .preloader:after {
+            content: "";
+            height: 100%;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .sk-cube-grid {
+            width: 3.857rem;
+            height: 3.857rem;
+            margin: 0 auto;
+            vertical-align: middle;
+            display: inline-block;
+        }
+
+        .sk-cube-grid .sk-cube {
+            width: 33%;
+            height: 33%;
+            background-color: #333;
+            float: left;
+            -webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+            animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;
+        }
+
+        .sk-cube-grid .sk-cube1 {
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+        }
+
+        .sk-cube-grid .sk-cube2 {
+            -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+        }
+
+        .sk-cube-grid .sk-cube3 {
+            -webkit-animation-delay: 0.4s;
+            animation-delay: 0.4s;
+        }
+
+        .sk-cube-grid .sk-cube4 {
+            -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s;
+        }
+
+        .sk-cube-grid .sk-cube5 {
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+        }
+
+        .sk-cube-grid .sk-cube6 {
+            -webkit-animation-delay: 0.3s;
+            animation-delay: 0.3s;
+        }
+
+        .sk-cube-grid .sk-cube7 {
+            -webkit-animation-delay: 0s;
+            animation-delay: 0s;
+        }
+
+        .sk-cube-grid .sk-cube8 {
+            -webkit-animation-delay: 0.1s;
+            animation-delay: 0.1s;
+        }
+
+        .sk-cube-grid .sk-cube9 {
+            -webkit-animation-delay: 0.2s;
+            animation-delay: 0.2s;
+        }
+
+        @-webkit-keyframes sk-cubeGridScaleDelay {
+
+            0%,
+            70%,
+            100% {
+                -webkit-transform: scale3D(1, 1, 1);
+                transform: scale3D(1, 1, 1);
+            }
+
+            35% {
+                -webkit-transform: scale3D(0, 0, 1);
+                transform: scale3D(0, 0, 1);
+            }
+        }
+
+        @keyframes sk-cubeGridScaleDelay {
+
+            0%,
+            70%,
+            100% {
+                -webkit-transform: scale3D(1, 1, 1);
+                transform: scale3D(1, 1, 1);
+            }
+
+            35% {
+                -webkit-transform: scale3D(0, 0, 1);
+                transform: scale3D(0, 0, 1);
+            }
+        }
+    </style>
+</head>
+
+<body class="page-color-style-1 page-style-1">
+
+    <div class="preloader">
+        <div class="sk-cube-grid selected">
+            <div class="sk-cube sk-cube1"></div>
+            <div class="sk-cube sk-cube2"></div>
+            <div class="sk-cube sk-cube3"></div>
+            <div class="sk-cube sk-cube4"></div>
+            <div class="sk-cube sk-cube5"></div>
+            <div class="sk-cube sk-cube6"></div>
+            <div class="sk-cube sk-cube7"></div>
+            <div class="sk-cube sk-cube8"></div>
+            <div class="sk-cube sk-cube9"></div>
+        </div>
+    </div>
+    <header class="header header-style-1">
+        <div class="navigation flex-align">
+            <a href="index.html" class="logo">
+                <img src="img/Allevofoods 1.svg" alt="Allevofoods">
+                <img src="img/AllevoFoodsMovil.svg" alt="Allevofoods" class="logo-type-2">
+            </a>
+            <div class="burger-menu"><i></i></div>
+            <div class="nav">
+                <div class="nav-align-wrap">
+
+                    <nav>
+                        <ul class="header-menu">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="#ventas">Ventas</a></li>
+                            <li><a href="#productos">Productos</a></li>
+                            <li><a href="contacto.html">Contacto</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- <div id="header"></div> -->
+    <div class="main-content">
+        <section class="full-height-slider">
+            <div class="swiper-container full-h paralax-slider animation-3" data-mode="horizontal" data-autoplay="0"
+                data-slides-per-view="1" data-loop="0" data-speed="1000" data-parallax="1">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="parallax-bg bg" style="background-image: url(img/allevo/Precisión.jpg)"
+                            data-swiper-parallax="50%"></div>
+                        <div class="table-view mobile-rel-block">
+                            <div class="table-cell">
+                                <div class="container">
+                                    <div class="empty-lg-50 empty-md-50 empty-sm-0 empty-xs-0"></div>
+                                    <div class="simple-item text-center color-type-1 simple-item-style-1"
+                                        data-swiper-parallax="30%" data-swiper-parallax-duration="1000">
+                                        <div class="first-div title h1 main-col">BIENVENIDO</div>
+                                        <div class="empty-sm-30 empty-xs-30"></div>
+                                        <div class="wrap-padding">
+                                            <h1 class="sub-title">PRECISIÓN</h1>
+                                            <div class="empty-sm-20  empty-xs-20"></div>
+                                            <div class="simple-text md simple-sub-text">
+                                                <h3>Allevo Foods, el aliado de tu restaurante.</h3>
+                                            </div>
+                                        </div>
+                                        <div class="empty-sm-45  empty-xs-45"></div>
+                                        <div class="button-wrap">
+                                            <a href="#productos" class="page-button button-style-1"><span
+                                                    class="txt">PRODUCTOS</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="parallax-bg layer bg"
+                            style="background-image: url(img/allevo/Agilidad.jpg)" data-swiper-parallax="50%">
+                        </div>
+                        <div class="table-view mobile-rel-block">
+                            <div class="table-cell">
+                                <div class="container">
+                                    <div class="empty-lg-50 empty-md-50 empty-sm-0 empty-xs-0"></div>
+                                    <div class="simple-item text-center color-type-1 simple-item-style-1"
+                                        data-swiper-parallax="30%" data-swiper-parallax-duration="1000">
+                                        <div class="first-div title h1 main-col">BIENVENIDO</div>
+                                        <div class="empty-sm-30 empty-xs-30"></div>
+                                        <div class="wrap-padding">
+                                            <h1 class="sub-title">AGILIDAD</h1>
+                                            <div class="empty-sm-20  empty-xs-20"></div>
+                                            <div class="simple-text md simple-sub-text">
+                                                <h3>Allevo Foods, el aliado de tu restaurante.</h3>
+                                            </div>
+                                        </div>
+                                        <div class="empty-sm-45  empty-xs-45"></div>
+                                        <div class="button-wrap">
+                                            <a href="#productos" class="page-button button-style-1"><span
+                                                    class="txt">PRODUCTOS</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="parallax-bg bg" style="background-image: url(img/allevo/Confianza.jpg)"
+                            data-swiper-parallax="50%"></div>
+                        <div class="table-view mobile-rel-block">
+                            <div class="table-cell">
+                                <div class="container">
+                                    <div class="empty-lg-50 empty-md-50 empty-sm-0 empty-xs-0"></div>
+                                    <div class="simple-item text-center color-type-1 simple-item-style-1"
+                                        data-swiper-parallax="30%" data-swiper-parallax-duration="1000">
+                                        <div class="first-div title h1 main-col">BIENVENIDO</div>
+                                        <div class="empty-sm-30 empty-xs-30"></div>
+                                        <div class="wrap-padding">
+                                            <h1 class="sub-title">CONFIANZA</h1>
+                                            <div class="empty-sm-20  empty-xs-20"></div>
+                                            <div class="simple-text md simple-sub-text">
+                                                <h3>Allevo Foods, el aliado de tu restaurante.</h3>
+                                            </div>
+                                        </div>
+                                        <div class="empty-sm-45  empty-xs-45"></div>
+                                        <div class="button-wrap">
+                                            <a href="#productos" class="page-button button-style-1"><span
+                                                    class="txt">PRODUCTOS</span></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="pagination swiper-pagination-2"></div>
+            </div>
+        </section>
+        <section class="section">
+            <div class="empty-lg-140 empty-md-100 empty-sm-90 empty-xs-60"></div>
+            <div class="custome-container">
+                <div class="row vertical-wrap item-animation scroll-type-1">
+                    <div class="col-md-3 col-sm-12 col-xs-12 md-hide">
+                        <div class="simple-item-style-2 simple-item">
+                            <span class="page-span-1 page-span"></span>
+                            <span class="page-span-2 page-span type-2"></span>
+                            <img src="img/allevo/Izquierda.jpg" alt="" class="resp-img">
+                        </div>
+                        <div class="empty-lg-0 empty-md-0 empty-sm-60 empty-xs-40"></div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="main-caption text-center item-padd-30">
+                            <h2 class="h1 title main-col">NOSOTROS</h2>
+                            <div class="empty-sm-10 empty-xs-10"></div>
+                            <div class="simple-text md simple-sub-text">
+                                <p>Nuestra mayor pasión es convertirnos en el aliado que hace posible cada servicio,
+                                    cada plato y cada experiencia
+                                    inolvidable para nuestros clientes.</p>
+                            </div>
+                            <div class="empty-sm-35 empty-xs-25"></div>
+                            <div class="simple-text">
+                                <p>Allevo Foods S.A. es una empresa guatemalteca dedicada al desarrollo y producción de
+                                    alimentos para el sector food
+                                    service. Nos especializamos en brindar soluciones eficientes, seguras y de alta
+                                    calidad para restaurantes, hoteles,
+                                    cafeterías e instituciones. Operamos con procesos automatizados, compromiso
+                                    constante y un enfoque en la excelencia
+                                    operativa. </p>
+                            </div>
+                            <div class="empty-sm-45 empty-xs-35"></div>
+                            <!-- <a href="#" class="page-button button-style-2"><span class="bg" style="background-image: url(img/home-1/button_img_3.jpg)"></span><span class="txt">about us</span></a> -->
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-12 col-xs-12 md-hide">
+                        <div class="simple-item-style-2 simple-item">
+                            <span class="page-span-1 page-span type-2"></span>
+                            <span class="page-span-2 page-span"></span>
+                            <img src="img/allevo/Derecha.jpg" alt="" class="resp-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="empty-lg-140 empty-md-100 empty-sm-90 empty-xs-60"></div>
+        </section>
+
+
+
+        <section class="section" id="productos">
+            <div class="empty-lg-140 empty-md-100 empty-sm-90 empty-xs-60"></div>
+            <div class="container">
+                <div class="row item-animation scroll-type-1">
+                    <div class="col-md-6 col-md-offset-3">
+                        <div class="main-caption text-center">
+                            <h2 class="h1 title main-col">LINEAS DE PRODUCTO</h2>
+                            <div class="empty-sm-10 empty-xs-10"></div>
+                            <div class="simple-text md simple-sub-text">
+                                <p> Lo que necesites lo preparamos, no importa si es una salsa secreta para tus nuevos
+                                    platillos o tu nueva línea de
+                                    productos para la casa, somos tu aliado ideal en el desarrollo de tu empresa.</p>
+                            </div>
+                            <div class="empty-lg-70 empty-md-60 empty-sm-60 empty-xs-40"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="custome-container">
+                <div class="row item-animation scroll-type-1 justify-content-center">
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="menu-item menu-item-1">
+                            <div class="image">
+                                <span class="page-span-1 page-span"></span>
+                                <span class="page-span-2 page-span type-2"></span>
+                                <img src="img/allevo/Panaderia.jpg" alt="">
+                                <div class="vertical-align full menu-button">
+                                    <a href="#" class="page-button button-style-1 open-popup" data-open="popup-gallery"
+                                        data-rel="1"><span class="txt">VER
+                                            MAS</span></a>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="empty-sm-20 empty-xs-20"></div>
+                                <h4 class="h4 caption"><a href="#" class="link-hover-line">Panaderia</a></h4>
+                                <div class="empty-sm-10 empty-xs-10"></div>
+                                <!-- <div class="cat">Fresh dish</div> -->
+                            </div>
+                        </div>
+                        <div class="empty-sm-30 empty-xs-30"></div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="menu-item menu-item-1">
+                            <div class="image">
+                                <span class="page-span-4 page-span"></span>
+                                <img src="img/allevo/Reposteria.jpg" alt="">
+                                <div class="vertical-align full menu-button">
+                                    <a href="#" class="page-button button-style-1 open-popup" data-open="popup-gallery"
+                                        data-rel="2"><span class="txt">VER
+                                            MAS</span></a>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="empty-sm-20 empty-xs-20"></div>
+                                <h4 class="h4 caption"><a href="#" class="link-hover-line">Reposteria</a></h4>
+                                <div class="empty-sm-10 empty-xs-10"></div>
+                                <!-- <div class="cat">Coffee gift</div> -->
+                            </div>
+                        </div>
+                        <div class="empty-sm-30 empty-xs-30"></div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="menu-item menu-item-1">
+                            <div class="image">
+                                <img src="img/allevo/Salsas.jpg" alt="">
+                                <div class="vertical-align full menu-button">
+                                    <a href="#" class="page-button button-style-1 open-popup" data-open="popup-gallery"
+                                        data-rel="3"><span class="txt">VER
+                                            MAS</span></a>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="empty-sm-20 empty-xs-20"></div>
+                                <h4 class="h4 caption"><a href="#" class="link-hover-line">Salsas y Condimentos</a></h4>
+                                <div class="empty-sm-10 empty-xs-10"></div>
+                                <!-- <div class="cat">White bread</div> -->
+                            </div>
+                        </div>
+                        <div class="empty-sm-30 empty-xs-30"></div>
+                    </div>
+                </div>
+                <div class="row item-animation scroll-type-1 justify-content-center">                      
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="menu-item menu-item-1">
+                            <div class="image">
+                                <span class="page-span-4 type-2 page-span"></span>
+                                <span class="page-span-3 page-span"></span>
+                                <img src="img/allevo/Fritos 2.jpg" alt="">
+                                <div class="vertical-align full menu-button">
+                                    <a href="#" class="page-button button-style-1 open-popup" data-open="popup-gallery"
+                                        data-rel="4"><span class="txt">VER
+                                            MAS</span></a>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="empty-sm-20 empty-xs-20"></div>
+                                <h4 class="h4 caption"><a href="#" class="link-hover-line">Fritos</a></h4>
+                                <div class="empty-sm-10 empty-xs-10"></div>
+                            </div>
+                        </div>
+                        <div class="empty-sm-30 empty-xs-30"></div>
+                    </div>
+                    <div class="col-md-3 col-sm-6 col-xs-12">
+                        <div class="menu-item menu-item-1">
+                            <div class="image">
+                                <span class="page-span-4 type-2 page-span"></span>
+                                <span class="page-span-3 page-span"></span>
+                                <img src="img/allevo/Desayuno 2.jpg" alt="">
+                                <div class="vertical-align full menu-button">
+                                    <a href="#" class="page-button button-style-1 open-popup" data-open="popup-gallery"
+                                        data-rel="5"><span class="txt">VER MAS</span></a>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <div class="empty-sm-20 empty-xs-20"></div>
+                                <h4 class="h4 caption"><a href="#" class="link-hover-line">Desayuno</a></h4>
+                                <div class="empty-sm-10 empty-xs-10"></div>
+                            </div>
+                        </div>
+                        <div class="empty-sm-30 empty-xs-30"></div>
+                    </div>
+                </div>
+                <!-- <div class="text-center">
+                    <div class="empty-sm-20 empty-xs-20"></div>
+                    <a href="#" class="page-button button-style-2"><span class="bg" style="background-image: url(img/home-1/button_img_1.jpg)"></span>
+                        <span class="txt">menu</span>
+                    </a>
+                </div> -->
+            </div>
+            <div class="empty-lg-140 empty-md-100 empty-sm-90 empty-xs-60"></div>
+        </section>
+        <section class="section" id="ventas">
+            <div class="empty-lg-140 empty-md-100 empty-sm-90 empty-xs-60"></div>
+            <div class="custome-container">
+                <div class="row vertical-wrap item-animation scroll-type-1">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="main-caption text-center item-padd-30">
+                            <h2 class="h2 title main-col">¿Quieres conocer lo que podemos hacer por tu cocina?</h2>
+                            <div class="empty-sm-10 empty-xs-10"></div>
+                            <div class="simple-text md simple-sub-text">
+                                <p> Solicita una degustación sin compromiso y descubre la calidad, sabor y eficiencia
+                                    que Allevo Foods puede ofrecerte.
+                                    Estamos listos para mostrarte cómo podemos ser el aliado perfecto en tu operación
+                                    diaria.
+                                </p>
+                            </div>
+                            <!-- <div class="empty-sm-35 empty-xs-35"></div>
+                           <div class="simple-text">
+                               <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, ab illo totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem oloremque laudantium.</p>
+                           </div> -->
+                            <div class="empty-sm-45  empty-xs-45"></div>
+                            <a href="#" class="page-button button-style-2"><span class="bg"
+                                    style="background-image: url(img/home-1/button_img_2.jpg)"></span><span
+                                    class="txt">SOLICITAR REUNION</span></a>
+                        </div>
+                        <div class="empty-lg-0 empty-md-0 empty-sm-60 empty-xs-60"></div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="simple-item-style-2 simple-item">
+                                    <span class="page-span-3 page-span"></span>
+                                    <img src="img/allevo/Arriba izquierda 2.jpg" alt="" class="resp-img">
+                                </div>
+                                <div class="empty-sm-30 empty-xs-30"></div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-12">
+                                <div class="simple-item-style-2 simple-item">
+                                    <span class="page-span-1 page-span type-2"></span>
+                                    <img src="img/allevo/Arriba derecha.jpg" alt="" class="resp-img">
+                                </div>
+                                <div class="empty-sm-30 empty-xs-30"></div>
+                            </div>
+                        </div>
+                        <div class="simple-item-style-2 simple-item">
+                            <span class="page-span-4 page-span"></span>
+                            <span class="page-span-2 page-span type-2"></span>
+                            <img src="img/allevo/Banner abajo 2.jpg" alt="" class="resp-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="empty-lg-140 empty-md-100 empty-sm-90 empty-xs-60"></div>
+        </section>
+
+    </div>
+
+    <footer class="footer footer-style-1">
+        <div class="empty-sm-60 empty-xs-40"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-sm-12">
+                    <div class="footer-item">
+                        <img src="img/Allevofoods 1.svg" alt="Allevofoods">
+                        <img src="img/AllevoFoodsMovil.svg" alt="Allevofoods" class="logo-type-2">
+                        <div class="empty-sm-15 empty-xs-15"></div>
+                        <div class="simple-text">
+                            <!-- <p>Todos los derechos reservados</p> -->
+                        </div>
+                        <div class="empty-sm-20 empty-xs-20"></div>                        
+                    </div>
+                    <div class="empty-sm-30 empty-xs-30"></div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-sm-12">
+                    <div class="footer-item">
+                        <h5 class="h5">HORARIO</h5>
+                        <div class="empty-sm-15 empty-xs-15"></div>
+                        <ul class="list-style-1 ul-list">
+                            <li>
+                                <div class="flex-wrap"><span>Lunes - Viernes</span><i></i><b>7am a 5pm</b></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="empty-sm-30 empty-xs-30"></div>
+                </div>
+                <div class="clearfix hidden-xs visible-sm hidden-md hidden-lg"></div>
+                <div class="col-md-5 col-sm-6 col-sm-12">
+                    <div class="footer-item">
+                        <h5 class="h5">CONTACTO</h5>
+                        <div class="empty-sm-15 empty-xs-15"></div>
+                        <ul class="list-style-2 ul-list">
+                            <li>Oficinas centrales 11 calle 6-44 zona 10, Edificio Airali Oficinas 902 y 903 Allevo HQ
+                            </li>
+                            <li>Planta: 5ta calle 1-36 pista izquierda, zona 9 ciudad de Guatemala.</li>
+                            <li><a href="tel:" class="link-hover">+502 2315 - 9708</a></li>
+                            <li><a href="mailto:" class="link-hover">admin@allevofoods.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="empty-sm-30 empty-xs-30"></div>
+                </div>           
+            </div>
+        </div>
+        <div class="copyright text-center">
+            <div class="container">
+                <span>© 2025 Todos los derechos reservados. Desarrollado por <a href="https://allevolution.org" target="_blank" rel="noopener">Allevo</a></span>
+            </div>
+            <div class="empty-sm-40 empty-xs-40"></div>
+        </div>
+    </footer>
+
+    <div class="popup index-popup-gallery" id="popup-gallery">
+        <div class="popup-wrap type-2">
+            <div class="container quick-wrapp">
+                <div class="close-popup type-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                        viewBox="0 0 21.9 21.9" enable-background="new 0 0 21.9 21.9" width="14px" height="14px">
+                        <path
+                            d="M14.1,11.3c-0.2-0.2-0.2-0.5,0-0.7l7.5-7.5c0.2-0.2,0.3-0.5,0.3-0.7s-0.1-0.5-0.3-0.7l-1.4-1.4C20,0.1,19.7,0,19.5,0  c-0.3,0-0.5,0.1-0.7,0.3l-7.5,7.5c-0.2,0.2-0.5,0.2-0.7,0L3.1,0.3C2.9,0.1,2.6,0,2.4,0S1.9,0.1,1.7,0.3L0.3,1.7C0.1,1.9,0,2.2,0,2.4  s0.1,0.5,0.3,0.7l7.5,7.5c0.2,0.2,0.2,0.5,0,0.7l-7.5,7.5C0.1,19,0,19.3,0,19.5s0.1,0.5,0.3,0.7l1.4,1.4c0.2,0.2,0.5,0.3,0.7,0.3  s0.5-0.1,0.7-0.3l7.5-7.5c0.2-0.2,0.5-0.2,0.7,0l7.5,7.5c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3l1.4-1.4c0.2-0.2,0.3-0.5,0.3-0.7  s-0.1-0.5-0.3-0.7L14.1,11.3z"
+                            fill="#484848" />
+                    </svg>
+                </div>
+                <div class="row left-right-item">
+                    <div class="col-md-6 col-xs-12">
+                        <img id="popup-image" src="" alt="" class="full-img">
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="quick-content">
+                            <h4 id="popup-title" class="h3 sm tt color-2"></h4>
+                            <div id="popup-description" class="simple-text mt-3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+    <script>
+        function subscribeForm() {
+            $.ajax({
+                type: 'POST', url: 'subscribeForm.php', data: $('#subscribe-form').serialize(), success: function (response) {
+                    $('.submit').html('send');
+                    $('#subscribe-form')[0].reset();
+                }
+            });
+            return false;
+        }
+        const popupData = {
+            1: {
+                titulo: 'Panaderia',
+                descripcion: [
+                    'Pirujos y Pan Blanco',
+                    'Pan Hamburguesa',
+                    'Pan Frances',
+                    'Baguettes',
+                    'Ciabattas',
+                    'Pan Cubano',
+                    'Palitos de pan',
+                    'Estilos personalizados disponibles'
+                ],
+                imagen: 'img/allevo/Panaderia.jpg'
+            },
+            2: {
+                titulo: 'Reposteria',
+                descripcion: [
+                    'Kekesitos',
+                    'Brownies',
+                    'Pasteles',
+                    'Croissants',
+                    'Turron',
+                    'Almibares',
+                    'Resposteria personalizada'
+                ],
+                imagen: 'img/allevo/Reposteria.jpg'
+            },
+            3: {
+                titulo: 'Salsas y Condimentos',
+                descripcion: [
+                    'Salsas rojas y verdes',
+                    'Salsas picantes',
+                    'Condimentos de todo tipo a medida',
+                    'Marinados',
+                    'Diseño de salsa gourmet personalizadas'
+                ],
+                imagen: 'img/allevo/Salsas.jpg'
+            },
+            4: {
+                titulo: 'Fritos',
+                descripcion: [
+                    'Empanadas',
+                    'Papas fritas',
+                    'Carnes preparadas',
+                    'Personalización de productos para cadena de restaurantes'
+                ],
+                imagen: 'img/allevo/Fritos 2.jpg'
+            },
+            5: {
+                titulo: 'Desayuno',
+                descripcion: [
+                    'Frijoles parados',
+                    'Frijoles volteados',
+                    'Pan de desayuno',
+                    'Mermeladas',
+                    'Personalización de platos a medida'
+                ],
+                imagen: 'img/allevo/Desayuno 2.jpg'
+            }
+        };
+    </script>
+    <script>
+        document.querySelectorAll('.open-popup').forEach(btn => {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const rel = this.dataset.rel;
+                const data = popupData[rel];
+
+                if (!data) return;
+
+                // Cambia contenido dinámico
+                document.getElementById('popup-title').textContent = data.titulo;
+                document.getElementById('popup-image').src = data.imagen;
+
+                const descContainer = document.getElementById('popup-description');
+                descContainer.innerHTML = '';
+                data.descripcion.forEach(item => {
+                    const p = document.createElement('p');
+                    p.textContent = item;
+                    descContainer.appendChild(p);
+                });
+
+                // Mostrar el popup
+                document.getElementById('popup-gallery').classList.add('active');
+            });
+        });
+
+        // Cerrar popup
+        document.querySelectorAll('.close-popup').forEach(btn => {
+            btn.addEventListener('click', function () {
+                document.getElementById('popup-gallery').classList.remove('active');
+            });
+        });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/all.js"></script>
+    <script src="js/jscolor.min.js"></script>
+    <script src="js/jquery.knob.js"></script>
+    <script src="js/jquery.throttle.js"></script>
+    <script src="js/jquery.classycountdown.js"></script>
+    <script src="js/jarallax.js"></script>
+    <script src="js/color.picker.js"></script>
+
+</body>
+
+</html>
