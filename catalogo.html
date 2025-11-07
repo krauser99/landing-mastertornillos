@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Catálogo – Master Tornillos</title>
+  <meta name="description" content="Catálogo de tornillos, tuercas, arandelas, anclajes y brocas: métrico y estándar. Venta, asesoría y suministro de accesorios." />
+  <link rel="icon" href="img/Logo2.png" type="image/png" />
+  <style>
+    :root{
+      --brand-yellow:#F8D448; --dark:#424242; --muted:#6f6f6f; --cta:#128c7e;
+      --stroke:#ececec; --card:#ffffff; --ink:#111; --chip:#f4f4f4;
+    }
+    html,body{height:100%}
+    body{
+      margin:0;display:flex;flex-direction:column;min-height:100vh;
+      color:var(--ink);background:#fff;
+      font-family:'Neue Haas Unica',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+    }
+    main{flex:1 0 auto}
+
+    /* Header fijo igual que Inicio/Cotización */
+    .header{
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--dark);
+      color:#fff;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .navigation{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:10px 18px;max-width:1120px;margin:0 auto
+    }
+    .navigation .header-menu{display:flex;gap:18px;list-style:none;margin:0;padding:0}
+    .navigation a{color:#fff;text-decoration:none;font-weight:600}
+    .logo img{height:58px; display: block;}
+    html{ scroll-padding-top:80px; }
+    section[id]{ scroll-margin-top:80px; }
+
+    /* Hero */
+    .hero-mini{background:var(--brand-yellow);padding:48px 16px;text-align:center}
+    .hero-mini h1{margin:0 0 6px;font-size:40px}
+    .muted{color:var(--muted);font-size:14px}
+
+    /* Layout */
+    .container{max-width:1120px;margin:0 auto;padding:0 16px}
+    .section{padding:36px 0}
+
+    /* Filtros */
+    .filters{display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:#fff;border:1px solid var(--stroke);
+      border-radius:14px;padding:12px;margin-bottom:18px}
+    .filters .group{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+    .filters label{font-size:13px;color:#555}
+    .filters select,.filters input[type="search"]{border:1px solid var(--stroke);border-radius:10px;padding:10px 12px;font-size:14px}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{background:var(--chip);border:1px solid var(--stroke);padding:8px 12px;border-radius:999px;font-weight:700;font-size:13px;cursor:pointer}
+    .chip.is-active{background:#111;color:#fff;border-color:#111}
+    .btn-reset{margin-left:auto;background:#fff;border:1px solid var(--stroke);border-radius:10px;padding:8px 12px;font-weight:700;cursor:pointer}
+    .btn-reset:hover{background:#f7f7f7}
+
+    /* Secciones por categoría */
+    .cat-section{margin:26px 0}
+    .cat-header{display:flex;align-items:flex-end;gap:10px;margin:0 0 12px}
+    .cat-title{font-size:22px;margin:0}
+    .cat-count{font-size:13px;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px}
+
+    /* Cards */
+    .card{border:1px solid var(--stroke);border-radius:12px;overflow:hidden;background:var(--card);display:flex;flex-direction:column;
+      transition:transform .18s ease, box-shadow .18s ease;}
+    .card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.08)}
+    .card img{width:100%;height:190px;object-fit:cover}
+    .card .body{padding:14px}
+    .card h3{font-size:16px;margin:0 0 6px}
+    .card .meta{font-size:12px;color:var(--muted)}
+    .actions{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+    .pill{display:inline-block;border-radius:999px;padding:8px 14px;text-decoration:none;font-weight:700;border:2px solid #111;color:#111}
+    .pill.wa{border-color:var(--cta);color:var(--cta)}
+    .pill:hover{opacity:.9}
+
+    /* Footer */
+    .footer{background:var(--dark);color:#fff}
+    .footer .container{padding:40px 16px}
+    .footer .row{display:grid;grid-template-columns:1fr 1fr 2fr;gap:24px}
+    .footer-item img{height:90px;}
+    .footer h5{margin:0 0 10px}
+    .footer ul{list-style:none;padding:0;margin:0}
+    .footer a{color:#fff;text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+    .copyright{border-top:1px solid rgba(255,255,255,.12);padding:16px 0;text-align:center}
+    @media (max-width:960px){ .footer .row{grid-template-columns:1fr} }
+
+   /* ===== FAB WhatsApp ===== */
+    .fab-wa{
+      position:fixed; right:18px; bottom:18px; z-index:60;
+      background:#25D366; color:#0d3b2e; border:none; border-radius:999px;
+      padding:12px 16px; font-weight:800; text-decoration:none;
+      box-shadow:0 12px 30px rgba(37,211,102,.35);
+    }
+    .fab-wa:hover{filter:brightness(1.05)}
+    .fab-wa svg{vertical-align:-3px}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="navigation">
+      <a href="index.html" class="logo" aria-label="Master Tornillos"><img src="img/Logo3.png" alt="Master Tornillos" /></a>
+      <nav>
+        <ul class="header-menu">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalogo.html" aria-current="page">Productos</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero-mini">
+    <h1>Servicios & Catálogo</h1>
+    <p class="muted" style="margin-top:8px">Venta de tornillos • Asesoría personalizada • Suministro de accesorios</p>
+  </section>
+
+  <main>
+    <section class="section">
+      <div class="container">
+
+        <!-- FILTROS -->
+        <div class="filters" id="filters">
+          <div class="group">
+            <label for="catSelect">Categoría:</label>
+            <select id="catSelect">
+              <option value="*">Todas</option>
+              <option value="arandelas">Arandelas / Roldanas</option>
+              <option value="tuercas">Tuercas</option>
+              <option value="allen">Allen</option>
+              <option value="hex_americano">Hexagonal Americano</option>
+              <option value="hex_metrico">Hexagonal Métrico</option>
+              <option value="estructural">Estructural A325/A490</option>
+              <option value="barras">Barras Roscadas</option>
+              <option value="busca_rosca">Busca Rosca / Autoperforantes</option>
+              <option value="carrocero">Carrocero</option>
+              <option value="anclajes">Pernos de Anclaje</option>
+              <option value="remaches">Remaches / Polser</option>
+            </select>
+          </div>
+          <div class="group">
+            <label for="q">Buscar:</label>
+            <input id="q" type="search" placeholder="Ej. inoxidable, G8, cabeza plana…" />
+          </div>
+          <div class="chips" id="chips">
+            <span class="chip" data-chip="inoxidable">Inoxidable</span>
+            <span class="chip" data-chip="galvanizado">Galvanizado</span>
+            <span class="chip" data-chip="hn">HN</span>
+            <span class="chip" data-chip="g2">G2</span>
+            <span class="chip" data-chip="g5">G5</span>
+            <span class="chip" data-chip="g8">G8</span>
+            <span class="chip" data-chip="a325">A325</span>
+            <span class="chip" data-chip="a490">A490</span>
+          </div>
+          <button class="btn-reset" id="resetBtn">Limpiar filtros</button>
+        </div>
+
+        <!-- SECCIONES POR CATEGORÍA -->
+        <div id="sections">
+          <!-- ===== Arandelas ===== -->
+          <section class="cat-section" id="sec-arandelas" data-section="arandelas">
+            <div class="cat-header">
+              <h3 class="cat-title">Arandelas / Roldanas</h3>
+              <span class="cat-count" data-count>0</span>
+            </div>
+            <div class="grid">
+              <div class="card" data-cat="arandelas" data-tags="plana roldana negra">
+                <img src="img/tornillos/Roldana Negra.webp" alt="Roldana Negra" />
+                <div class="body">
+                  <h3>Roldana Negra</h3><div class="meta">Plana</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="arandelas" data-tags="plana milimetrica">
+                <img src="img/tornillos/Milimetrica.webp" alt="Roldana Milimétrica" />
+                <div class="body">
+                  <h3>Roldana Milimétrica</h3><div class="meta">Plana</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="arandelas" data-tags="plana fender">
+                <img src="img/tornillos/Fender.webp" alt="Roldana Fender" />
+                <div class="body">
+                  <h3>Roldana Fender</h3><div class="meta">Plana</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="arandelas" data-tags="plana estructural a325 a490">
+                <img src="img/tornillos/Estructural.webp" alt="Roldana Estructural" />
+                <div class="body">
+                  <h3>Roldana Estructural</h3><div class="meta">Plana</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="arandelas" data-tags="presion hn grower">
+                <img src="img/tornillos/washapresion.webp" alt="Washa de presión HN" />
+                <div class="body">
+                  <h3>Washa de presión HN</h3><div class="meta">De presión</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="arandelas" data-tags="inoxidable">
+                <img src="img/tornillos/washainoxidable.webp" alt="Washa inoxidable" />
+                <div class="body">
+                  <h3>Washa inoxidable</h3><div class="meta">Inoxidable</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="arandelas" data-tags="galvanizado">
+                <img src="img/tornillos/washagalvanizada.webp" alt="Washa galvanizada" />
+                <div class="body">
+                  <h3>Washa Galvanizada</h3><div class="meta">Galvanizada</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Tuercas ===== -->
+          <section class="cat-section" id="sec-tuercas" data-section="tuercas">
+            <div class="cat-header">
+              <h3 class="cat-title">Tuercas</h3>
+              <span class="cat-count" data-count>0</span>
+            </div>
+            <div class="grid">
+              <div class="card" data-cat="tuercas" data-tags="ordinaria unc unf sae">
+                <img src="img/tornillos/TuercaOrdinaria.webp" alt="Tuerca Ordinaria" />
+                <div class="body">
+                  <h3>Tuerca Ordinaria</h3><div class="meta">UNC/UNF</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="tuercas" data-tags="fina">
+                <img src="img/tornillos/fina.webp" alt="Tuerca Fina" />
+                <div class="body">
+                  <h3>Tuerca Fina</h3><div class="meta">Paso fino</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="tuercas" data-tags="metrica ordinaria">
+                <img src="img/tornillos/metrica-ordinaria.webp" alt="Tuerca Métrica" />
+                <div class="body">
+                  <h3>Tuerca Métrica</h3><div class="meta">Métrica ordinaria</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="tuercas" data-tags="2h alta resistencia estructural">
+                <img src="img/tornillos/2H.webp" alt="Tuerca 2H" />
+                <div class="body">
+                  <h3>Tuerca 2H</h3><div class="meta">Alta resistencia</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="tuercas" data-tags="mariposa manual">
+                <img src="img/tornillos/Mariposa.webp" alt="Tuerca Mariposa" />
+                <div class="body">
+                  <h3>Tuerca Mariposa</h3><div class="meta">Manual</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="tuercas" data-tags="flange flanchada">
+                <img src="img/tornillos/flangue.webp" alt="Tuerca Flange" />
+                <div class="body">
+                  <h3>Tuerca Flange</h3><div class="meta">Flanchada</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="tuercas" data-tags="corona castillo">
+                <img src="img/tornillos/corona.webp" alt="Tuerca de Corona" />
+                <div class="body">
+                  <h3>Tuerca de Corona</h3><div class="meta">Castillo</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="tuercas" data-tags="nyloc seguridad">
+                <img src="img/tornillos/Deseguridad.webp" alt="Tuerca de Seguridad" />
+                <div class="body">
+                  <h3>Tuerca de Seguridad</h3><div class="meta">Nyloc</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Allen ===== -->
+          <section class="cat-section" id="sec-allen" data-section="allen">
+            <div class="cat-header">
+              <h3 class="cat-title">Allen</h3>
+              <span class="cat-count" data-count>0</span>
+            </div>
+            <div class="grid">
+              <div class="card" data-cat="allen" data-tags="castigador inox inoxidable">
+                <img src="img/tornillos/Castigador inoxidable.webp" alt="Castigador Inoxidable" />
+                <div class="body">
+                  <h3>Allen Castigador (Inox)</h3><div class="meta">Inoxidable</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="allen" data-tags="milimetrico cabeza cilindrica ordinario">
+                <img src="img/tornillos/Milimetrico - cabeza cilindrica ordinario.webp" alt="Allen cabeza cilíndrica" />
+                <div class="body">
+                  <h3>Allen M — cabeza cilíndrica</h3><div class="meta">Métrico</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="allen" data-tags="milimetrico castigador">
+                <img src="img/tornillos/Milimetrico - castigador.webp" alt="Allen castigador M" />
+                <div class="body">
+                  <h3>Allen M — castigador</h3><div class="meta">Métrico</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="allen" data-tags="milimetrico cabeza plana avellanada">
+                <img src="img/tornillos/Milimetrico - cabeza plana.webp" alt="Allen cabeza plana" />
+                <div class="body">
+                  <h3>Allen M — cabeza plana</h3><div class="meta">Avellanada</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="allen" data-tags="americano milimetrico boton button">
+                <img src="img/tornillos/Americano - cabeza boton.webp" alt="Allen botón" />
+                <div class="body">
+                  <h3>Allen — cabeza botón</h3><div class="meta">Americano / Métrico</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Hex Americano ===== -->
+          <section class="cat-section" id="sec-hex_americano" data-section="hex_americano">
+            <div class="cat-header">
+              <h3 class="cat-title">Hexagonal Americano</h3>
+              <span class="cat-count" data-count>0</span>
+            </div>
+            <div class="grid">
+              <div class="card" data-cat="hex_americano" data-tags="g8 ordinaria grado8">
+                <img src="img/tornillos/ordinaria G8.webp" alt="Rosca Ordinaria G8" />
+                <div class="body">
+                  <h3>Hex Amer — Rosca ordinaria G8</h3><div class="meta">Grado 8</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="hex_americano" data-tags="g2 rosca corrida">
+                <img src="img/tornillos/Rosca corrida G2.webp" alt="Rosca Corrida G2" />
+                <div class="body">
+                  <h3>Hex Amer — Rosca corrida G2</h3><div class="meta">Grado 2</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="hex_americano" data-tags="galvanizado">
+                <img src="img/tornillos/Galvanizado en diferentes grados.webp" alt="Galvanizado" />
+                <div class="body">
+                  <h3>Hex Amer — Galvanizado</h3><div class="meta">Diferentes grados</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="hex_americano" data-tags="g5 ordinaria grado5">
+                <img src="img/tornillos/Rosca ordinaria G5.webp" alt="Rosca Ordinaria G5" />
+                <div class="body">
+                  <h3>Hex Amer — Rosca ordinaria G5</h3><div class="meta">Grado 5</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Hex Métrico ===== -->
+          <section class="cat-section" id="sec-hex_metrico" data-section="hex_metrico">
+            <div class="cat-header">
+              <h3 class="cat-title">Hexagonal Métrico</h3>
+              <span class="cat-count" data-count>0</span>
+            </div>
+            <div class="grid">
+              <div class="card" data-cat="hex_metrico" data-tags="fina metrico">
+                <img src="img/tornillos/Rosca fina.webp" alt="Rosca fina métrica" />
+                <div class="body">
+                  <h3>Hex Métrico — Rosca fina</h3><div class="meta">Métrica</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="hex_metrico" data-tags="ordinaria metrico">
+                <img src="img/tornillos/Rosca ordinaria.webp" alt="Rosca ordinaria métrica" />
+                <div class="body">
+                  <h3>Hex Métrico — Rosca ordinaria</h3><div class="meta">Métrica</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Estructural ===== -->
+          <section class="cat-section" id="sec-estructural" data-section="estructural">
+            <div class="cat-header">
+              <h3 class="cat-title">Estructural A325 / A490</h3>
+              <span class="cat-count" data-count>0</span>
+            </div>
+            <div class="grid">
+              <div class="card" data-cat="estructural" data-tags="a325 alta resistencia">
+                <img src="img/tornillos/Estructural A325.webp" alt="Estructural A325" />
+                <div class="body">
+                  <h3>Estructural A325</h3><div class="meta">Alta resistencia</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="estructural" data-tags="a490 alta resistencia">
+                <img src="img/tornillos/Estructural A490.webp" alt="Estructural A490" />
+                <div class="body">
+                  <h3>Estructural A490</h3><div class="meta">Alta resistencia</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Barras roscadas ===== -->
+          <section class="cat-section" id="sec-barras" data-section="barras">
+            <div class="cat-header">
+              <h3 class="cat-title">Barras Roscadas</h3>
+              <span class="cat-count" data-count>0</span>
+            </div>
+            <div class="grid">
+              <div class="card" data-cat="barras" data-tags="galvanizado barra roscada">
+                <img src="img/tornillos/Barra roscada galvanizada.webp" alt="Barra roscada galvanizada" />
+                <div class="body">
+                  <h3>Barra roscada galvanizada</h3><div class="meta">Galvanizada</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="barras" data-tags="hn barra roscada">
+                <img src="img/tornillos/Barra roscada HN.webp" alt="Barra roscada HN" />
+                <div class="body">
+                  <h3>Barra roscada HN</h3><div class="meta">HN</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Busca rosca ===== -->
+          <section class="cat-section" id="sec-busca_rosca" data-section="busca_rosca">
+            <div class="cat-header">
+              <h3 class="cat-title">Busca Rosca / Autoperforantes</h3>
+              <span class="cat-count" data-count>0</span>
+            </div>
+            <div class="grid">
+              <div class="card" data-cat="busca_rosca" data-tags="phillips cabeza redonda">
+                <img src="img/tornillos/Cabeza redonda phillips.webp" alt="Cabeza redonda phillips" />
+                <div class="body">
+                  <h3>Busca rosca — cabeza redonda</h3><div class="meta">Phillips</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="busca_rosca" data-tags="phillips punta de broca autoperforante">
+                <img src="img/tornillos/Punta de broca phillips.webp" alt="Punta de broca phillips" />
+                <div class="body">
+                  <h3>Busca rosca — punta de broca</h3><div class="meta">Phillips</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="busca_rosca" data-tags="phillips cabeza plana">
+                <img src="img/tornillos/Cabeza plana phillips.webp" alt="Cabeza plana phillips" />
+                <div class="body">
+                  <h3>Busca rosca — cabeza plana</h3><div class="meta">Phillips</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Carrocero ===== -->
+          <section class="cat-section" id="sec-carrocero" data-section="carrocero">
+            <div class="cat-header">
+              <h3 class="cat-title">Carrocero</h3>
+              <span class="cat-count" data-count>0</span>
+            </div>
+            <div class="grid">
+              <div class="card" data-cat="carrocero" data-tags="hn">
+                <img src="img/tornillos/Carrocero - HN.webp" alt="Carrocero HN" />
+                <div class="body">
+                  <h3>Carrocero HN</h3><div class="meta">HN</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="carrocero" data-tags="inoxidable">
+                <img src="img/tornillos/Carrocero inoxidable.webp" alt="Carrocero inoxidable" />
+                <div class="body">
+                  <h3>Carrocero inoxidable</h3><div class="meta">Inoxidable</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="carrocero" data-tags="galvanizado">
+                <img src="img/tornillos/Carrosero galvanizado.webp" alt="Carrocero galvanizado" />
+                <div class="body">
+                  <h3>Carrocero galvanizado</h3><div class="meta">Galvanizado</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Pernos de anclaje ===== -->
+          <section class="cat-section" id="sec-anclajes" data-section="anclajes">
+            <div class="cat-header">
+              <h3 class="cat-title">Pernos de Anclaje</h3>
+              <span class="cat-count" data-count>0</span>
+            </div>
+            <div class="grid">
+              <div class="card" data-cat="anclajes" data-tags="cabeza redonda">
+                <img src="img/tornillos/Cabeza redonda.webp" alt="Perno cabeza redonda" />
+                <div class="body">
+                  <h3>Perno de anclaje — cabeza redonda</h3><div class="meta"></div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="anclajes" data-tags="cabeza plana">
+                <img src="img/tornillos/Cabeza plana.webp" alt="Perno cabeza plana" />
+                <div class="body">
+                  <h3>Perno de anclaje — cabeza plana</h3><div class="meta"></div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="anclajes" data-tags="galvanizado">
+                <img src="img/tornillos/Perno de anclaje galvanizado.webp" alt="Perno galvanizado" />
+                <div class="body">
+                  <h3>Perno de anclaje — galvanizado</h3><div class="meta">Galvanizado</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="anclajes" data-tags="inoxidable">
+                <img src="img/tornillos/Perno de anclaje inoxidable.webp" alt="Perno inoxidable" />
+                <div class="body">
+                  <h3>Perno de anclaje — inoxidable</h3><div class="meta">Inoxidable</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ===== Remaches ===== -->
+          <section class="cat-section" id="sec-remaches" data-section="remaches">
+            <div class="cat-header">
+              <h3 class="cat-title">Remaches / Polser</h3>
+              <span class="cat-count" data-count>0</span>
+            </div>
+            <div class="grid">
+              <div class="card" data-cat="remaches" data-tags="pop ala normal">
+                <img src="img/tornillos/Remache pop ala normal.webp" alt="Remache pop ala normal" />
+                <div class="body">
+                  <h3>Remache pop — ala normal</h3><div class="meta">Pop</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="remaches" data-tags="pop ala ancha">
+                <img src="img/tornillos/Remache pop ala ancha.webp" alt="Remache pop ala ancha" />
+                <div class="body">
+                  <h3>Remache pop — ala ancha</h3><div class="meta">Pop</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="remaches" data-tags="polser punta normal">
+                <img src="img/tornillos/Polser punta normal.webp" alt="Polser punta normal" />
+                <div class="body">
+                  <h3>Polser — punta normal</h3><div class="meta"></div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+              <div class="card" data-cat="remaches" data-tags="polser punta de broca autoperforante">
+                <img src="img/tornillos/Polser punta de broca.webp" alt="Polser punta de broca" />
+                <div class="body">
+                  <h3>Polser — punta de broca</h3><div class="meta">Autoperforante</div>
+                  <div class="actions"><a class="pill wa" target="_blank" rel="noopener" href="#">WhatsApp</a></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+        </div><!-- /sections -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer footer-style-1">
+    <div class="container">
+      <div class="row">
+        <div class="footer-item"><img src="img/Logo3.png" alt="Master Tornillos"></div>
+        <div class="footer-item">
+          <h5 class="h5">HORARIO</h5>
+          <ul class="list-style-1 ul-list">
+            <li><div class="flex-wrap"><span>Lunes - Viernes</span> — <b>8:00 a 17:00</b></div></li>
+          </ul>
+        </div>
+        <div class="footer-item">
+          <h5 class="h5">CONTACTO</h5>
+          <ul class="list-style-2 ul-list">
+            <li>Ciudad de Guatemala</li>
+            <li>Bodega: 5ta calle 1-36, zona 9, Ciudad de Guatemala</li>
+            <li><a href="tel:+50241032992" class="link-hover">+502 4103-2992</a></li>
+            <li><a href="mailto:ventas@mastertornillos.com" class="link-hover">ventas@mastertornillos.com</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      © 2025 Todos los derechos reservados. Desarrollado por
+      <a href="https://allevotechnologies.com" target="_blank" rel="noopener">Allevo-Tech</a>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <a class="fab-wa" href="https://wa.me/50241032992?text=Hola%20Master%20Tornillos,%20quisiera%20cotizaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg width="18" height="18" viewBox="0 0 32 32" fill="#0d3b2e" aria-hidden="true"><path d="M19.11 17.3c-.27-.13-1.58-.78-1.82-.86-.24-.09-.42-.13-.6.13-.18.27-.69.86-.84 1.04-.15.18-.31.2-.58.07-.27-.13-1.15-.42-2.2-1.34-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.11-.54.11-.11.27-.29.4-.44.13-.15.18-.25.27-.42.09-.18.04-.32-.02-.45-.07-.13-.6-1.45-.82-1.99-.22-.53-.45-.46-.6-.46-.16 0-.34-.02-.52-.02s-.48.07-.73.34c-.25.27-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.85.13.18 1.93 2.95 4.68 4.02.65.28 1.16.45 1.56.58.65.2 1.25.17 1.72.1.53-.08 1.58-.65 1.8-1.28.22-.63.22-1.18.16-1.28-.07-.11-.25-.18-.52-.31z"/><path d="M26.7 5.3C23.9 2.5 20.1 1 16 1 7.7 1 1 7.7 1 16c0 2.6.7 5.1 2 7.3L1 31l7.9-2.1c2.1 1.1 4.5 1.7 7.1 1.7 8.3 0 15-6.7 15-15 0-4.1-1.5-7.9-4.3-10.7zm-10.7 24c-2.4 0-4.7-.6-6.7-1.7l-.5-.3-4.7 1.2 1.3-4.6-.3-.5C3.6 21.3 3 18.7 3 16 3 8.8 8.8 3 16 3s13 5.8 13 13-5.8 13-13 13z"/></svg>
+    &nbsp; WhatsApp
+  </a>
+
+  <script>
+    (function(){
+      const sectionsWrap = document.getElementById('sections');
+      const sectionEls = Array.from(sectionsWrap.querySelectorAll('.cat-section'));
+      const cards = Array.from(sectionsWrap.querySelectorAll('.card'));
+
+      const select = document.getElementById('catSelect');
+      const q = document.getElementById('q');
+      const chips = document.getElementById('chips');
+      const resetBtn = document.getElementById('resetBtn');
+
+      const activeChips = new Set();
+      const norm = s => (s||'').toString().toLowerCase();
+
+      function cardMatches(card){
+        const cat = card.dataset.cat || '';
+        const tags = card.dataset.tags || '';
+        const text = (card.textContent || '') + ' ' + tags + ' ' + cat;
+
+        const catOk = (select.value === '*' || select.value === cat);
+        const qOk = !q.value || norm(text).includes(norm(q.value));
+
+        let chipsOk = true;
+        activeChips.forEach(ch => { if(!norm(text).includes(norm(ch))) chipsOk = false; });
+
+        return catOk && qOk && chipsOk;
+      }
+
+      function updateCountsAndVisibility(){
+        sectionEls.forEach(sec=>{
+          const grid = sec.querySelector('.grid');
+          const allCards = Array.from(grid.children);
+          const visible = allCards.filter(c => c.style.display !== 'none');
+          const countEl = sec.querySelector('[data-count]');
+          if(countEl) countEl.textContent = `${visible.length} ítem(s)`;
+          sec.style.display = visible.length ? '' : 'none';
+        });
+      }
+
+      function sortInsideSections(){
+        sectionEls.forEach(sec=>{
+          const grid = sec.querySelector('.grid');
+          const list = Array.from(grid.children);
+          list.sort((a,b)=>{
+            const na = a.querySelector('h3')?.textContent?.trim()?.toLowerCase() || '';
+            const nb = b.querySelector('h3')?.textContent?.trim()?.toLowerCase() || '';
+            return na.localeCompare(nb,'es');
+          }).forEach(el=>grid.appendChild(el));
+        });
+      }
+
+      function render(){
+        cards.forEach(card=>{ card.style.display = cardMatches(card) ? '' : 'none'; });
+        updateCountsAndVisibility();
+      }
+
+      select.addEventListener('change', render);
+      q.addEventListener('input', render);
+      chips.addEventListener('click', (e)=>{
+        const el = e.target.closest('.chip'); if(!el) return;
+        const key = el.dataset.chip;
+        if(activeChips.has(key)){ activeChips.delete(key); el.classList.remove('is-active'); }
+        else { activeChips.add(key); el.classList.add('is-active'); }
+        render();
+      });
+      resetBtn.addEventListener('click', ()=>{
+        select.value='*'; q.value='';
+        activeChips.clear();
+        chips.querySelectorAll('.chip').forEach(c=>c.classList.remove('is-active'));
+        render();
+      });
+
+      // Enlaces de WhatsApp por tarjeta con el título del producto
+      const PHONE = '50241032992';
+      document.querySelectorAll('#sections .card').forEach(card => {
+        const title = card.querySelector('h3')?.textContent?.trim() || 'Producto';
+        const msg = `Cotización ${title}`;
+        const url = `https://wa.me/${PHONE}?text=${encodeURIComponent(msg)}`;
+        card.querySelectorAll('a.pill.wa').forEach(a => { a.href = url; });
+      });
+
+      // FAB con mensaje genérico (mismo patrón que Inicio/Cotización)
+      const fab = document.getElementById('waFab');
+      if (fab) fab.href = `https://wa.me/${PHONE}?text=${encodeURIComponent('Hola Master Tornillos, quisiera una cotización')}`;
+
+      // init
+      sortInsideSections();
+      render();
+    })();
+  </script>
+</body>
+</html>

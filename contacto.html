@@ -1,416 +1,294 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <meta name="format-detection" content="telephone=no" /> 
-    <link rel="icon" href="img/AllevoFoodIcono.png" type="image/png">
-    <title>Allevo Foods - Contáctanos</title>
-    
-    <meta name="description"
-      content="Ponte en contacto con Allevo Foods. Estamos listos para ser el aliado de tu restaurante y responder todas tus consultas de productos food service.">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Allevo Foods - Contáctanos">
-    <meta property="og:description"
-      content="Contacta a Allevo Foods para conocer nuestras soluciones de alimentos para restaurantes, hoteles y cafeterías en Guatemala.">
-    <meta property="og:image" content="https://allevofoods.com/img/AllevoFoodIcono.png">
-    <meta property="og:url" content="https://allevofoods.com/contacto.html">
-    <meta property="og:type" content="website">
-      <style id="dynamic-css"></style>
-      <style type="text/css">
-            h1, h2, h3, h4, p {
-                font-family: 'Neue Haas Unica', sans-serif;
-                line-height: auto;
-                letter-spacing: 0;
-                }
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Master Tornillos — Contáctanos</title>
+  <meta name="description" content="Contáctanos para cotizar tornillos, pernos, tuercas, arandelas, anclajes y brocas. Atención inmediata y asesoría técnica." />
+  <link rel="icon" href="img/Logo2.png" type="image/png" />
 
-                h1 {
-                font-size: 53px;
-                font-weight: 500; /* Medium */
-                }
+  <style>
+    :root{
+      --brand:#F8D448;         /* Amarillo marca */
+      --brand-ink:#111111;     /* Texto fuerte */
+      --dark:#424242;          /* Fondo header/footer */
+      --muted:#6f6f6f;         /* Texto secundario */
+      --line:#e9e9e9;          /* Bordes suaves */
+      --ring:#e4c438;          /* Amarillo más oscuro para focus/hover */
+      --bg:#ffffff;
+    }
 
-                h2 {
-                font-size: 43px;
-                font-weight: 500;
-                }
+    /* ===== Layout base: footer siempre al final ===== */
+    html,body{height:100%}
+    body{
+      margin:0; display:flex; flex-direction:column; min-height:100vh;
+      color:var(--brand-ink); background:var(--bg);
+      font-family:'Neue Haas Unica', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif;
+      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    .main{flex:1 0 auto}
 
-                h3 {
-                font-size: 32px;
-                font-weight: 500;
-                }
+    /* ===== Utilidades ===== */
+    .container{max-width:1120px; margin:0 auto; padding:0 18px}
+    .section{padding:64px 0}
+    h1{font-size:48px; font-weight:700; margin:0}
+    h2{font-size:36px; font-weight:700; margin:0}
+    h3{font-size:22px; font-weight:700; margin:0}
+    p{margin:0; line-height:1.6}
+    .muted{color:var(--muted)}
+    .lead{font-size:18px}
 
-                h4.h4-class1 {
-                font-size: 21px;
-                font-weight: 500;
-                text-transform: uppercase;
-                }
+    /* ===== Header ===== */
+    .header{position:sticky; top:0; z-index:40; background:var(--dark); color:#fff; border-bottom:1px solid rgba(255,255,255,.08)}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 0}
+    .logo img{height:58px; display:block}
+    .logo .logo-m{display:none}
+    @media (max-width:768px){ .logo img{display:none} .logo .logo-m{display:block; height:40px} }
+    .menu{display:flex; gap:18px; list-style:none; margin:0; padding:0}
+    .menu a{color:#fff; text-decoration:none; font-weight:600; padding:8px 10px; border-radius:10px}
+    .menu a:hover{background:rgba(255,255,255,.08)}
+    .cta-wa{color:#0d3b2e; background:#25D366; font-weight:800}
 
-                h4.h4-class2 {
-                font-size: 21px;
-                font-weight: 500;
-                text-transform: capitalize;
-                }
+    /* ===== HERO: degradado + banda amarilla + textura sutil ===== */
+    .hero{
+      position:relative; overflow:hidden; color:#fff;
+      background:
+        radial-gradient(1200px 400px at 80% -10%, rgba(0,0,0,.45), transparent 55%),
+        linear-gradient(180deg, #181818 0%, #0f0f0f 60%, #0a0a0a 100%);
+    }
+    .hero .band{position:absolute; inset:0 0 auto 0; height:12px; background:var(--brand)}
+    .hero .grid{
+      display:grid; grid-template-columns: 1.2fr .8fr; gap:28px;
+      align-items:center; min-height:360px; padding:64px 0 48px;
+    }
+    .hero h1{letter-spacing:.3px}
+    .hero .lead{margin-top:10px; color:#e9e9e9}
+    .hero .chip{
+      display:inline-flex; align-items:center; gap:10px;
+      background:rgba(248,212,72,.12); border:1px solid rgba(248,212,72,.35);
+      color:#fff; padding:10px 14px; border-radius:999px; font-weight:600; margin-top:16px;
+    }
+    .hero-img{
+      position:relative; aspect-ratio:4/3; border:1px solid rgba(255,255,255,.1);
+      border-radius:16px; overflow:hidden; box-shadow:0 25px 60px rgba(0,0,0,.4);
+      background:url('img/tornillos/fondo.webp') center/cover no-repeat;
+    }
+    .hero-img::after{ /* brillo sutil */
+      content:""; position:absolute; inset:0; background:linear-gradient(120deg, rgba(255,255,255,.06), transparent 30% 70%, rgba(255,255,255,.06));
+    }
+    @media (max-width:960px){ .hero .grid{grid-template-columns:1fr; gap:18px; min-height:unset} }
 
-                p {
-                font-size: 21px;
-                font-weight: 300; /* Light */
-                }
-                /* GENERAL PARA HEADER Y FOOTER */
-                .logo img,
-                .footer-item img {
-                display: inline-block;
-                }
+    /* ===== Cards de contacto ===== */
+    .cards{
+      margin-top:-44px;
+      display:grid; grid-template-columns:repeat(3,1fr); gap:22px;
+    }
+    .card{
+      background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px 20px; text-align:center;
+      box-shadow:0 15px 45px rgba(0,0,0,.06); transition:.25s ease; position:relative; overflow:hidden;
+    }
+    .card::before{
+      content:""; position:absolute; inset:auto -20% -60% -20%;
+      height:140%; background:radial-gradient(300px 120px at 50% 90%, rgba(248,212,72,.12), transparent 60%);
+      transform:rotate(0.0001deg);
+    }
+    .card:hover{transform:translateY(-3px); box-shadow:0 20px 60px rgba(0,0,0,.08); border-color:#dedede}
+    .icon{
+      width:64px; height:64px; margin:0 auto 10px; display:grid; place-items:center;
+      border-radius:14px; background:linear-gradient(180deg, #fff 0%, #f7f7f7 100%); border:1px solid var(--line);
+      box-shadow:0 10px 25px rgba(0,0,0,.06);
+    }
+    .card h3{margin:10px 0 6px}
+    .card p + p{margin-top:6px}
+    .card a{color:var(--brand-ink); text-decoration:none; border-bottom:1px solid var(--brand-ink)}
+    .card a:hover{opacity:.85}
+    @media (max-width:960px){ .cards{grid-template-columns:1fr} }
 
-                .logo .logo-type-2,
-                .footer-item .logo-type-2 {
-                display: none;
-                }
+    /* ===== Separador wave ===== */
+    .wave{position:relative; height:50px; margin:20px 0 -10px}
+    .wave svg{display:block; width:100%; height:100%}
 
-                @media screen and (max-width: 768px) {
-                    .logo img,
-                    .footer-item img {
-                        display: none;
-                    }
+    /* ===== Horario ===== */
+    .work{max-width:720px; margin:0 auto; text-align:center}
+    .work ul{list-style:none; padding:0; margin:16px 0 0}
+    .work li{display:flex; justify-content:center; gap:10px; font-size:18px}
 
-                    .logo .logo-type-2,
-                    .footer-item .logo-type-2 {
-                        display: inline-block;
-                    }
-                }
-      .preloader {position: fixed;left: 0;top: 0;width: 100%;height: 100%;background: #fff;text-align: center;z-index: 6001; }
-      .preloader:after { content: ""; height: 100%; display: inline-block; vertical-align: middle; }
-      .sk-cube-grid {width: 3.857rem;height: 3.857rem;margin: 0 auto;vertical-align: middle;display: inline-block; }
-      .sk-cube-grid .sk-cube {width: 33%;height: 33%;background-color: #333;float: left;-webkit-animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out;animation: sk-cubeGridScaleDelay 1.3s infinite ease-in-out; }
-      .sk-cube-grid .sk-cube1 {
-        -webkit-animation-delay: 0.2s;
-        animation-delay: 0.2s; }
-      .sk-cube-grid .sk-cube2 {
-        -webkit-animation-delay: 0.3s;
-        animation-delay: 0.3s; }
-      .sk-cube-grid .sk-cube3 {
-        -webkit-animation-delay: 0.4s;
-        animation-delay: 0.4s; }
-      .sk-cube-grid .sk-cube4 {
-        -webkit-animation-delay: 0.1s;
-        animation-delay: 0.1s; }
-      .sk-cube-grid .sk-cube5 {
-        -webkit-animation-delay: 0.2s;
-        animation-delay: 0.2s; }
-      .sk-cube-grid .sk-cube6 {
-        -webkit-animation-delay: 0.3s;
-        animation-delay: 0.3s; }
-      .sk-cube-grid .sk-cube7 {
-        -webkit-animation-delay: 0s;
-        animation-delay: 0s; }
-      .sk-cube-grid .sk-cube8 {
-        -webkit-animation-delay: 0.1s;
-        animation-delay: 0.1s; }
-      .sk-cube-grid .sk-cube9 {
-        -webkit-animation-delay: 0.2s;
-        animation-delay: 0.2s; }
-      @-webkit-keyframes sk-cubeGridScaleDelay {
-        0%, 70%, 100% {
-          -webkit-transform: scale3D(1, 1, 1);
-          transform: scale3D(1, 1, 1); }
-        35% {
-          -webkit-transform: scale3D(0, 0, 1);
-          transform: scale3D(0, 0, 1); } }
-      @keyframes sk-cubeGridScaleDelay {
-        0%, 70%, 100% {
-          -webkit-transform: scale3D(1, 1, 1);
-          transform: scale3D(1, 1, 1); }
-        35% {
-          -webkit-transform: scale3D(0, 0, 1);
-          transform: scale3D(0, 0, 1); } }
-    </style>
-  </head>
-<body class="page-color-style-6 page-style-6">
-   
-    <div class="preloader">
-     <div class="sk-cube-grid selected">
-      <div class="sk-cube sk-cube1"></div>
-      <div class="sk-cube sk-cube2"></div>
-      <div class="sk-cube sk-cube3"></div>
-      <div class="sk-cube sk-cube4"></div>
-      <div class="sk-cube sk-cube5"></div>
-      <div class="sk-cube sk-cube6"></div>
-      <div class="sk-cube sk-cube7"></div>
-      <div class="sk-cube sk-cube8"></div>
-      <div class="sk-cube sk-cube9"></div>
-    </div>
-   </div>
-  
-  <header class="header header-style-1">
-    <div class="navigation flex-align">
-      <a href="index.html" class="logo">
-        <img src="img/Allevofoods 1.svg" alt="Allevofoods">
-        <img src="img/AllevoFoodsMovil.svg" alt="Allevofoods" class="logo-type-2">
+    /* ===== CTA inferior ===== */
+    .cta{
+      background:linear-gradient(180deg, #fff 0%, #f9f9f9 100%);
+      border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+      text-align:center; padding:40px 0;
+    }
+    .btn{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:12px 18px; border-radius:12px; font-weight:800; text-decoration:none; border:2px solid var(--brand);
+      background:var(--brand); color:#111;
+      box-shadow:0 10px 30px rgba(255, 204, 2, 0.85);
+    }
+    .btn:hover{filter:saturate(1.05) brightness(1.02)}
+    .btn.ghost{background:transparent; color:var(--brand-ink); border-color:var(--brand-ink)}
+
+    /* ===== Footer ===== */
+    .footer{background:var(--dark); color:#fff}
+    .footer .grid{display:grid; grid-template-columns:1fr 1fr 2fr; gap:24px; padding:44px 0}
+    .footer img{height:90px}
+    .footer h4{margin:0 0 10px}
+    .footer ul{list-style:none; margin:0; padding:0}
+    .footer a{color:#fff; text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+    .copyright{border-top:1px solid rgba(255,255,255,.12); text-align:center; padding:16px 0}
+
+    @media (max-width:960px){ .footer .grid{grid-template-columns:1fr} }
+
+    /* ===== FAB WhatsApp ===== */
+    .fab-wa{
+      position:fixed; right:18px; bottom:18px; z-index:60;
+      background:#25D366; color:#0d3b2e; border:none; border-radius:999px;
+      padding:12px 16px; font-weight:800; text-decoration:none;
+      box-shadow:0 12px 30px rgba(37,211,102,.35);
+    }
+    .fab-wa:hover{filter:brightness(1.05)}
+    .fab-wa svg{vertical-align:-3px}
+
+    /* Accesibilidad foco */
+    a:focus-visible, .btn:focus-visible, .fab-wa:focus-visible{
+      outline:3px solid var(--ring); outline-offset:2px; border-radius:12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container nav">
+      <a class="logo" href="index.html" aria-label="Master Tornillos">
+        <img src="img/Logo3.png" alt="Master Tornillos">
+        <img class="logo-m" src="img/Logo3.png" alt="Master Tornillos">
       </a>
-      <div class="burger-menu"><i></i></div>
-      <div class="nav">
-        <div class="nav-align-wrap">
-  
-          <nav>
-            <ul class="header-menu">
-              <li><a href="index.html">Inicio</a></li>
-              <li><a href="index.html#ventas">Ventas</a></li>
-              <li><a href="index.html#productos">Productos</a></li>
-              <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
+      <nav>
+        <ul class="menu">
+          <li><a href="index.html">Inicio</a></li>
+          
+          <li><a href="catalogo.html">Productos</a></li>
+          <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+         
+        </ul>
+      </nav>
     </div>
   </header>
-    
-    <div class="main-content">
-    
-    <section class="full-height-slider type-1">
-       <div class="bg ready data-jarallax" data-jarallax="5" style="background-image: url(img/allevo/banner-contacto.jpg)" data-swiper-parallax="50%"></div>
-		   <div class="table-view mobile-rel-block">
-			  <div class="table-cell">
-			   <div class="container no-padd"> 
-           <div class="row vertical-wrap">
-             <div class="col-lg-6 col-lg-offset-3 col-sm-12">
-              <div class="simple-item color-type-1 text-center">
-              <div class="main-title">
-                <h1 class="h1 caption">CONTACTO</h1>
-                <div class="empty-sm-30"></div>
-                 <div class="col-md-10 col-md-offset-1">
-                   <div class="simple-text md">
-                       <!-- <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p> -->
-                   </div>
-                 </div>
-                </div>   
-                </div>
-             </div>
-             </div>
-           </div> 
-            <div class="location-bottom type-2">
-              <div class="container">
-                <div class="row">
-                  <div class="col-sm-4 col-xs-12">
-                  <div class="empty-sm-70 empty-xs-30"></div>
-                  <div class="text-center color-type-3">
-                  <div class="contact-icon">
-                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512.192 512.192" width="65px" height="65px" style="enable-background:new 0 0 512.192 512.192;" xml:space="preserve">
-                    <g><g><g>
-                      <path d="M440.805,386.456l-60.907-47.467c-17.173-13.44-41.173-13.333-58.24,0.213l-13.547,10.667
-                        c-10.24,8.107-24.96,7.253-34.24-2.027l-108.907-109.12c-9.28-9.28-10.133-24.107-2.027-34.453l10.667-13.547
-                        c13.547-17.067,13.547-41.173,0.213-58.24l-47.36-61.013c-8.32-10.667-20.8-17.28-34.347-18.133
-                        c-13.44-0.747-26.667,4.267-36.267,13.76l-38.827,38.933c-21.653,21.653-52.907,90.987,122.773,266.987
-                        c114.453,114.773,184.32,138.88,222.72,138.88c23.147,0,36.587-8.533,43.733-15.787l38.933-38.933
-                        c18.453-18.453,18.347-48.427-0.107-66.88C443.685,388.909,442.298,387.629,440.805,386.456z M432.165,440.216
-                        c-0.747,0.853-1.387,1.6-2.133,2.347l-38.933,38.933c-4.267,4.373-12.8,9.493-28.693,9.493
-                        c-28.16,0-92.587-17.173-207.68-132.587c-132.48-132.8-148.907-210.56-122.667-236.8l38.933-39.04
-                        c4.8-4.8,11.307-7.573,18.24-7.573c0.533,0,1.067,0,1.6,0c7.36,0.427,14.187,4.053,18.773,9.92l47.36,61.013
-                        c7.36,9.387,7.253,22.613-0.107,32l-10.667,13.547c-14.827,18.773-13.227,45.653,3.627,62.72l108.907,109.227
-                        c16.96,16.96,43.84,18.56,62.613,3.627l13.547-10.667c9.28-7.36,22.507-7.467,31.893-0.107l60.907,47.467
-                        C438.992,412.589,441.018,428.909,432.165,440.216z"></path>
-                      <path d="M509.072,3.416c-4.16-4.16-10.88-4.16-15.04,0L288.165,209.282v-91.2c0-5.333-3.84-10.133-9.067-10.88
-                        c-6.613-0.96-12.267,4.16-12.267,10.56v117.333c0,5.867,4.8,10.667,10.667,10.667h106.347c5.333,0,10.133-3.84,10.88-9.067
-                        c0.96-6.613-4.16-12.267-10.56-12.267h-80.96L509.072,18.562C513.232,14.402,513.232,7.576,509.072,3.416z"></path>
-                      </g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
-                    </svg>
-                  </div>
-                  <div class="empty-sm-15 empty-xs-10"></div>
-                    <h4 class="h4 tt color-type-3">Número de Teléfono</h4>
-                     <div class="empty-sm-20 empty-xs-10"></div>
-                     <div class="simple-text contact color-2">
-                       <a href="tel:3805623157851" class="link-hover">+502 2315 - 9708</a>
-                     </div>
-                  </div>
-                  </div>
-                  <div class="col-sm-4 col-xs-12">
-                  <div class="empty-sm-70 empty-xs-30"></div>
-                  <div class="text-center color-type-3">
-                  <div class="contact-icon">
-                    <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="65px" height="65px" viewBox="0 0 491.582 491.582" style="enable-background:new 0 0 491.582 491.582;" xml:space="preserve">
-                    <g><g>
-                      <path d="M245.791,0C153.799,0,78.957,74.841,78.957,166.833c0,36.967,21.764,93.187,68.493,176.926
-                      c31.887,57.138,63.627,105.4,64.966,107.433l22.941,34.773c2.313,3.507,6.232,5.617,10.434,5.617s8.121-2.11,10.434-5.617
-                      l22.94-34.771c1.326-2.01,32.835-49.855,64.967-107.435c46.729-83.735,68.493-139.955,68.493-176.926
-                      C412.625,74.841,337.783,0,245.791,0z M322.302,331.576c-31.685,56.775-62.696,103.869-64.003,105.848l-12.508,18.959
-                      l-12.504-18.954c-1.314-1.995-32.563-49.511-64.007-105.853c-43.345-77.676-65.323-133.104-65.323-164.743
-                      C103.957,88.626,167.583,25,245.791,25s141.834,63.626,141.834,141.833C387.625,198.476,365.647,253.902,322.302,331.576z"></path>
-                      <path d="M245.791,73.291c-51.005,0-92.5,41.496-92.5,92.5s41.495,92.5,92.5,92.5s92.5-41.496,92.5-92.5
-                      S296.796,73.291,245.791,73.291z M245.791,233.291c-37.22,0-67.5-30.28-67.5-67.5s30.28-67.5,67.5-67.5
-                      c37.221,0,67.5,30.28,67.5,67.5S283.012,233.291,245.791,233.291z"></path>
-                    </g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g>
-                    </svg>
-                  </div>
-                  <div class="empty-sm-15 empty-xs-10"></div>
-                  <h4 class="h4 tt color-type-3">Ubicación</h4>
-                     <div class="empty-sm-20 empty-xs-10"></div>
-                     <div class="simple-text color-2 contact">
-                       <p>Oficinas centrales 11 calle 6-44 zona 10, Edificio Airali Oficinas 902 y 903 Allevo HQ</p>
-                       <p>Planta: 5ta calle 1-36 pista izquierda, zona 9 ciudad de Guatemala.</p>
-                     </div>
-                  </div>
-                  </div>
-                  <div class="col-sm-4 col-xs-12">
-                  <div class="empty-sm-70 empty-xs-30"></div>
-                  <div class="text-center color-type-3">
-                  <div class="contact-icon">
-                    <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44 44" width="65px" height="65px" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 44 44">
-                    <g><g><g>
-                        <path d="M43,6H1C0.447,6,0,6.447,0,7v30c0,0.553,0.447,1,1,1h42c0.552,0,1-0.447,1-1V7C44,6.447,43.552,6,43,6z M42,33.581     L29.612,21.194l-1.414,1.414L41.59,36H2.41l13.392-13.392l-1.414-1.414L2,33.581V8h40V33.581z"></path>
-                      </g></g><g><g>
-                        <path d="M39.979,8L22,25.979L4.021,8H2v0.807L21.293,28.1c0.391,0.391,1.023,0.391,1.414,0L42,8.807V8H39.979z"></path>
-                      </g></g></g>
-                    </svg>
-                  </div>
-                  <div class="empty-sm-15 empty-xs-10"></div>
-                    <h4 class="h4 tt color-type-3">Correo</h4>
-                     <div class="empty-sm-20 empty-xs-10"></div>
-                     <div class="simple-text contact color-2">
-                       <a href="mailto:admin@allevofoods.com" class="link-hover">admin@allevofoods.com</a>
-                     </div>
-                  </div>
-                  </div>
-                </div>
-              </div>
-            </div> 
-				  </div>
-			 </div>
-    </section>        
-    <section class="section">
-      <div class="empty-lg-120 empty-md-100 empty-sm-60 empty-xs-60"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-md-offset-3 col-xs-12">
-            <div class="main-caption text-center color-type-2">
-              <h2 class="h2">HORARIO DE TRABAJO</h2>
-              <div class="empty-sm-5 empty-xs-5"></div>
-              <div class="simple-text md simple-sub-text">
-                <!-- <div class="flex-wrap"><span>Lunes - Viernes</span><i></i><b>7am a 5pm</b></div> -->
-              </div>
-            </div>
-          </div>
+
+  <!-- Main -->
+  <main class="main">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="band"></div>
+      <div class="container grid">
+        <div>
+          <h1>Contacto</h1>
+          <p class="lead">Atención inmediata — te ayudamos a elegir la fijación correcta para tu proyecto.</p>
+          <div class="chip">Tornillería • Tuercas • Arandelas • Anclajes</div>
         </div>
-        <div class="row">
-          <div class="col-md-12 col-xs-12">
-            <aside>
-              <div class="empty-sm-70 empty-xs-30"></div>
-              <div class="text-center color-type-2">
-                <!-- <h4 class="h4 tt color-type-1">working time</h4> -->
-                <div class="empty-sm-10 empty-xs-10"></div>
-                <div class="simple-text">
-                  <!-- <p>Ut enimex ea ad minim veniam, quis nostrud exercitation ullamco laboris.</p> -->
-                </div>
-                <div class="empty-sm-20 empty-xs-10"></div>
-                <ul class="list-style-1 ul-list">
-                  <li>
-                    <div class="flex-wrap"><span>Lunes - Viernes</span><i></i><b>7am a 5pm</b></div>
-                  </li>
-                  <li>
-                    <!-- <div class="flex-wrap"><span>Saturday</span><i></i><b>11:00 - 01:00</b></div> -->
-                    <div></div>
-                  </li>
-                  <li>
-                    <!-- <div class="flex-wrap"><span>Sunday</span><i></i><b>12:00 - 23:00</b></div> -->
-                     <div></div>
-                     <br><br><br><br><br><br><br><br><br>
-                  </li>
-                </ul>
-              </div>
-            </aside>            
-          </div>         
-        </div>
+        <div class="hero-img" aria-hidden="true"></div>
       </div>
     </section>
-    <!-- <section class="section">
-      <div class="map-item size-2"> 
-        <div class="map-wrapper map-full" id="map-canvas" data-lat="48.8372768" data-lng="2.2393405" data-zoom="14" data-marker="img/marker.png" data-style="1"></div>
-        <div class="markers-wrapper addresses-block">
-          <a class="marker" data-rel="map-canvas" data-lat="48.8372768" data-lng="2.2393405" data-string=''></a>
-        </div>
+
+    <!-- Cards contacto -->
+    <section class="section" style="padding-top:24px">
+      <div class="container cards">
+        <!-- Teléfono -->
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 512 512" width="28" height="28" fill="#111"><path d="M440.8 386.5l-60.9-47.5c-17.2-13.4-41.2-13.3-58.3.2l-13.5 10.7c-10.2 8.1-25 7.3-34.3-2L164.8 239.6c-9.3-9.3-10.1-24.1-2-34.5l10.7-13.5c13.5-17.1 13.5-41.2.2-58.3l-47.4-61c-8.4-10.7-21-17.3-34.6-18.1-13.4-.8-26.7 4.3-36.3 13.8L16 69c-21.7 21.7-52.9 91 122.8 267 114.5 114.8 184.3 138.9 222.7 138.9 23.1 0 36.6-8.5 43.7-15.8l38.9-38.9c18.5-18.5 18.4-48.5-.1-67z"/></svg>
+          </div>
+          <h3>Teléfono</h3>
+          <p><a href="tel:+50223159708">+502 4103-2992</a></p>
+        </article>
+
+        <!-- Ubicación -->
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 492 492" width="28" height="28" fill="#111"><path d="M246 0C154 0 79 75 79 167c0 37 22 93 68 177 32 57 64 105 65 107l23 34c4.6 7 16 7 20.6 0l23-35c1.3-2 33-50 65-107 46-84 68-140 68-177C413 75 338 0 246 0z"/></svg>
+          </div>
+          <h3>Ubicación</h3>
+          <p class="muted"></p>
+          <p class="muted">Bodega: 5ta calle 1-36, zona 9, Ciudad de Guatemala</p>
+        </article>
+
+        <!-- Correo -->
+        <article class="card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 44 44" width="28" height="28" fill="#111"><path d="M43 6H1c-.6 0-1 .4-1 1v30c0 .6.4 1 1 1h42c.6 0 1-.4 1-1V7c0-.6-.4-1-1-1zM22 26L2 8h40L22 26z"/></svg>
+          </div>
+          <h3>Correo</h3>
+          <p><a href="mailto:ventas@mastertornillos.com">ventas@mastertornillos.com</a></p>
+           <p><a href="mailto:danielamazariegos@mastertornillos.com">danielamazariegos@mastertornillos.com</a></p>
+        </article>
       </div>
-    </section>  -->
-   
-	</div>
-   
-  <footer class="footer footer-style-1">
-    <div class="empty-sm-60 empty-xs-40"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4 col-sm-6 col-sm-12">
-          <div class="footer-item">
-            <img src="img/Allevofoods 1.svg" alt="Allevofoods">
-            <img src="img/AllevoFoodsMovil.svg" alt="Allevofoods" class="logo-type-2">
-            <div class="empty-sm-15 empty-xs-15"></div>
-            <div class="simple-text">
-              <!-- <p>Todos los derechos reservados</p> -->
-            </div>
-            <div class="empty-sm-20 empty-xs-20"></div>
-          </div>
-          <div class="empty-sm-30 empty-xs-30"></div>
-        </div>
-        <div class="col-md-3 col-sm-6 col-sm-12">
-          <div class="footer-item">
-            <h5 class="h5">HORARIO</h5>
-            <div class="empty-sm-15 empty-xs-15"></div>
-            <ul class="list-style-1 ul-list">
-              <li>
-                <div class="flex-wrap"><span>Lunes - Viernes</span><i></i><b>7am a 5pm</b></div>
-              </li>
-            </ul>
-          </div>
-          <div class="empty-sm-30 empty-xs-30"></div>
-        </div>
-        <div class="clearfix hidden-xs visible-sm hidden-md hidden-lg"></div>
-        <div class="col-md-5 col-sm-6 col-sm-12">
-          <div class="footer-item">
-            <h5 class="h5">CONTACTO</h5>
-            <div class="empty-sm-15 empty-xs-15"></div>
-            <ul class="list-style-2 ul-list">
-              <li>Oficinas centrales 11 calle 6-44 zona 10, Edificio Airali Oficinas 902 y 903 Allevo HQ
-              </li>
-              <li>Planta: 5ta calle 1-36 pista izquierda, zona 9 ciudad de Guatemala.</li>
-              <li><a href="tel:" class="link-hover">+502 2315 - 9708</a></li>
-              <li><a href="mailto:" class="link-hover">admin@allevofoods.com</a></li>
-            </ul>
-          </div>
-          <div class="empty-sm-30 empty-xs-30"></div>
-        </div>
+    </section>
+
+    <!-- Wave -->
+    <div class="wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 120" preserveAspectRatio="none">
+        <path fill="#ffffff" d="M0,64L60,85.3C120,107,240,149,360,149.3C480,149,600,107,720,80C840,53,960,43,1080,48C1200,53,1320,75,1380,85.3L1440,96L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"/>
+      </svg>
+    </div>
+
+    <!-- Horario -->
+    <section class="section" style="padding-top:12px">
+      <div class="container work">
+        <h2>Horario de trabajo</h2>
+        <p class="muted" style="margin-top:8px">Respondemos rápido dentro del horario, y fuera de hora por WhatsApp.</p>
+        <ul>
+          <li><span class="muted">Lunes a Viernes</span> — <strong>8:00 a 17:00</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <h3 style="margin-bottom:12px">¿Listo para cotizar?</h3>
+        <p class="muted" style="margin-bottom:18px">Envíanos medidas, cantidad y material (galvanizado, inox).</p>
+        
+        &nbsp;
+        <a class="btn ghost" href="catalogo.html">Ver productos</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container grid">
+      <div>
+        <img src="img/Logo3.png" alt="Master Tornillos" />
+        <div style="height:8px"></div>
+      </div>
+      <div>
+        <h4>Horario</h4>
+        <ul><li>Lunes - Viernes — 8:00 a 17:00</li></ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li></li>
+          <li>Bodega: 5ta calle 1-36, zona 9, Ciudad de Guatemala</li>
+          <li><a href="tel:+50223159708">+502 2315 - 9708</a></li>
+          <li><a href="mailto:ventas@mastertornillos.com">ventas@mastertornillos.com</a></li>
+          <li><a href="mailto:danielamazariegos@mastertornillos.com">danielamazariegos@mastertornillos.com</a></li>
+        </ul>
       </div>
     </div>
-    <div class="copyright text-center">
-      <div class="container">
-        <span>© 2025 Todos los derechos reservados. Desarrollado por <a href="https://allevolution.org" target="_blank" rel="noopener">Allevo</a></span>
-      </div>
-      <div class="empty-sm-40 empty-xs-40"></div>
+    <div class="copyright">
+      © 2025 · Desarrollado por <a href="https://allevotechnologies.com/" target="_blank" rel="noopener">Allevo Tech</a>
     </div>
   </footer>
-  
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">  
-<link href="css/style.css" rel="stylesheet" type="text/css"/>  
- 
-<script>
-  function MessageForm3() {
-    $.ajax({
-      type: 'POST', url: 'messageForm3.php', data: $('#messageForm3').serialize(), success: function (response) {
-        $('.submit').html('send');
-        $('#messageForm3')[0].reset();
-      }
-    });
-    return false;
-  }
-</script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script> 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCOJxqBTpjRXdgM8UM0UXuLCmK_AKF9NPs"></script>
-<script src="js/jscolor.min.js"></script>
-<script src="js/jquery.knob.js"></script>
-<script src="js/jquery.throttle.js"></script>
-<script src="js/jquery.classycountdown.js"></script>
-<script src="js/jarallax.js"></script>
-<script src="js/all.js"></script>
-<script src="js/color.picker.js"></script>
-
+  <!-- WhatsApp flotante -->
+  <a class="fab-wa" href="https://wa.me/50241032992?text=Hola%20Master%20Tornillos,%20quisiera%20cotizaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+    <svg width="18" height="18" viewBox="0 0 32 32" fill="#0d3b2e" aria-hidden="true"><path d="M19.11 17.3c-.27-.13-1.58-.78-1.82-.86-.24-.09-.42-.13-.6.13-.18.27-.69.86-.84 1.04-.15.18-.31.2-.58.07-.27-.13-1.15-.42-2.2-1.34-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.11-.54.11-.11.27-.29.4-.44.13-.15.18-.25.27-.42.09-.18.04-.32-.02-.45-.07-.13-.6-1.45-.82-1.99-.22-.53-.45-.46-.6-.46-.16 0-.34-.02-.52-.02s-.48.07-.73.34c-.25.27-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.85.13.18 1.93 2.95 4.68 4.02.65.28 1.16.45 1.56.58.65.2 1.25.17 1.72.1.53-.08 1.58-.65 1.8-1.28.22-.63.22-1.18.16-1.28-.07-.11-.25-.18-.52-.31z"/><path d="M26.7 5.3C23.9 2.5 20.1 1 16 1 7.7 1 1 7.7 1 16c0 2.6.7 5.1 2 7.3L1 31l7.9-2.1c2.1 1.1 4.5 1.7 7.1 1.7 8.3 0 15-6.7 15-15 0-4.1-1.5-7.9-4.3-10.7zm-10.7 24c-2.4 0-4.7-.6-6.7-1.7l-.5-.3-4.7 1.2 1.3-4.6-.3-.5C3.6 21.3 3 18.7 3 16 3 8.8 8.8 3 16 3s13 5.8 13 13-5.8 13-13 13z"/></svg>
+    &nbsp; WhatsApp
+  </a>
 </body>
-</html>	
+</html>
