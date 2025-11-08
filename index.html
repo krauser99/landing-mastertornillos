@@ -8,19 +8,17 @@
   <title>Master Tornillos</title>
   <meta name="description" content="Master Tornillos en Guatemala: tornillos, pernos, tuercas, arandelas, anclajes y brocas en medidas métricas y estándar. Entregas rápidas y asesoría técnica.">
 
-  <!-- Swiper 3.x -->
+  <!-- Swiper 3.x (CSS) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
 
   <style>
     :root{
       --yellow:#F8D448;
-      --dark:#424242;
       --text:#111;
       --muted:#6f6f6f;
       --stroke:#ececec;
-      --cta:#128c7e;
       --white:#fff;
-      --fab-sticky-bottom:96px; /* valor de respaldo; se actualiza por JS a 3x altura */
+      --fab-sticky-bottom:96px;
     }
 
     html,body{height:100%}
@@ -29,7 +27,7 @@
       color:var(--text);
       font-family:system-ui,-apple-system,'Segoe UI',Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
       background:#fff;
-      padding-top:82px;
+      /* OJO: el padding-top real lo aplica header.html vía CSS (var --header-h-*) */
       -webkit-text-size-adjust:100%;
       text-size-adjust:100%;
     }
@@ -39,57 +37,6 @@
     .container{max-width:1200px; margin:0 auto; padding:0 16px}
     .title-center{ text-align:center; margin:0 0 12px; font-size:clamp(26px,4vw,36px) }
     .subtitle{ color:var(--muted); text-align:center; margin:0 auto 30px; max-width:960px }
-
-    /* ===== Header fijo (sin línea/sombra abajo) ===== */
-    .header{
-      position:fixed; inset:0 0 auto 0; z-index:1000;
-      background:var(--dark);
-      color:#ffffff;
-      box-shadow:none !important;     /* quita “línea” de sombra */
-      border-bottom:none !important;  /* asegura sin borde */
-    }
-    .nav{
-      max-width:1200px; margin:0 auto; padding:10px 16px;
-      display:flex; align-items:center; gap:12px;
-    }
-    .logo img{height:58px}
-
-    nav.primary-nav{margin-left:auto;}
-    .menu{list-style:none; display:flex; gap:18px; margin:0; padding:0}
-    .menu a{
-      color:#fff; text-decoration:none; font-weight:600;
-      padding:10px 12px; border-radius:10px;
-      transition:background .2s ease, transform .2s ease;
-    }
-    .menu a:hover{background:rgba(255,255,255,.08); transform:translateY(-1px)}
-
-    .burger{
-      margin-left:8px;
-      display:none; width:42px; height:42px; border-radius:10px;
-      background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
-      align-items:center; justify-content:center; cursor:pointer;
-    }
-    .burger span, .burger span::before, .burger span::after{
-      content:""; display:block; width:20px; height:2px; background:#fff; border-radius:2px; position:relative
-    }
-    .burger span::before{ position:absolute; top:-6px }
-    .burger span::after{ position:absolute; top:6px }
-
-    @media (max-width:880px){
-      body{ padding-top:70px }
-      .logo img{height:48px}
-      .burger{display:flex}
-      .nav{padding:8px 12px; justify-content:space-between;}
-      nav.primary-nav{margin-left:0;}
-      .menu{
-        position:absolute; top:100%; left:0; right:0;
-        background:#333;
-        border-bottom:none !important;   /* SIN línea en responsive */
-        display:none; flex-direction:column; gap:0; padding:6px;
-      }
-      .menu.is-open{display:flex}
-      .menu li a{ display:block; padding:12px 14px; }
-    }
 
     /* ===== Hero / Slider ===== */
     .hero{position:relative; min-height:86vh; background:var(--yellow); overflow:hidden}
@@ -205,65 +152,21 @@
     }
     @media (max-width:560px){ .gallery{ grid-template-columns:1fr } }
 
-    /* ===== Footer ===== */
-    footer{background:var(--dark); color:#fff}
-    .footer-top{ padding:42px 16px }
-    .footer-cols{
-      display:grid; grid-template-columns:1fr 1fr 2fr; gap:24px; max-width:1200px; margin:0 auto
-    }
-    /* Centrar logo del footer */
-    .footer-cols > div:first-child{
-      display:flex; justify-content:center; align-items:flex-start; text-align:center;
-    }
-    .footer h5{ margin:0 0 12px }
-    .footer ul{ list-style:none; padding:0; margin:0 }
-    .footer a{ color:#fff; text-decoration:none }
-    .copyright{ border-top:1px solid rgba(255,255,255,.12); padding:16px 0; text-align:center }
-    @media (max-width:900px){ .footer-cols{ grid-template-columns:1fr } }
-
-    /* ===== FAB WhatsApp ===== */
-    .fab-wa{
-      position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom)); z-index:60;
-      background:#25D366; color:#0d3b2e; border:none; border-radius:999px;
-      padding:12px 16px; font-weight:800; text-decoration:none;
-      box-shadow:0 12px 30px rgba(37,211,102,.35);
-      display:inline-flex; align-items:center; gap:8px;
-      transition:bottom .18s ease;
-    }
-    /* cuando el footer se ve, sube 3× su propia altura (valor real lo pone JS) */
-    .fab-wa.stick-up{ bottom:var(--fab-sticky-bottom) !important; }
-    .fab-wa:hover{ filter:brightness(1.05) }
-    .fab-wa svg{ vertical-align:-3px }
-
     /* Bullets del slider en negro */
-    .swiper-pagination-2 .swiper-pagination-bullet{
-      background:#000 !important; opacity:.35;
-    }
-    .swiper-pagination-2 .swiper-pagination-bullet.swiper-pagination-bullet-active{
-      background:#000 !important; opacity:1;
-    }
+    .swiper-pagination-2 .swiper-pagination-bullet{ background:#000 !important; opacity:.35; }
+    .swiper-pagination-2 .swiper-pagination-bullet.swiper-pagination-bullet-active{ background:#000 !important; opacity:1; }
+
+    body[data-page="inicio"]{
+  padding-top: 0 !important;
+}
   </style>
 </head>
-<body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="nav">
-      <a href="index.html" class="logo" aria-label="Master Tornillos">
-        <img src="img/Logo3.png" alt="Master Tornillos">
-      </a>
+<!-- marca de página para resaltar el menú en el header parcial -->
+<body data-page="inicio">
 
-      <nav class="primary-nav">
-        <ul class="menu" id="menu">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="catalogo.html">Productos</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-
-      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
-    </div>
-  </header>
+  <!-- Header desde parcial -->
+  <div data-include="partials/header.html"></div>
 
   <main>
     <!-- HERO -->
@@ -352,37 +255,22 @@
       <div class="container">
         <h2 class="title-center">Tornillos para tus proyectos</h2>
         <p class="subtitle">
-          
-En Master Tornillos nos especializamos en proveer soluciones en tornillería para la industria de la construcción y vivienda. Contamos con una amplia gama de productos de alta calidad y un equipo de expertos dispuestos a brindarte el mejor servicio y asesoramiento técnico. Confía en nosotros para satisfacer todas tus necesidades en materia de tornillos.
-
-    Tornillos en grado 2, 5 y 8
-    Tornillos estructurales 
-    Tornillos para metales 
-    Tornillos autorriscantes 
-    Y mas 
-
+          En Master Tornillos nos especializamos en proveer soluciones en tornillería para la industria de la construcción y vivienda. Contamos con una amplia gama de productos de alta calidad y un equipo de expertos dispuestos a brindarte el mejor servicio y asesoramiento técnico. Confía en nosotros para satisfacer todas tus necesidades en materia de tornillos.
+          <br>— Tornillos en grado 2, 5 y 8 · Tornillos estructurales · Tornillos para metales · Tornillos autorroscantes · y más.
         </p>
 
         <div class="cards">
           <article class="card">
             <img src="img/tornillos/3.webp" onerror="this.src='img/tornillos/hero-precision.jpg'" alt="Alta resistencia">
-            <div class="body">
-              <h3>Alta resistencia</h3>
-            </div>
+            <div class="body"><h3>Alta resistencia</h3></div>
           </article>
-
           <article class="card">
             <img src="img/tornillos/2.webp" onerror="this.src='img/tornillos/brocas.jpg'" alt="Cobertura métrica y SAE">
-            <div class="body">
-              <h3>Métrica & SAE</h3>
-            </div>
+            <div class="body"><h3>Métrica & SAE</h3></div>
           </article>
-
           <article class="card">
             <img src="img/tornillos/hexagonal.jpg" alt="Entrega y soporte">
-            <div class="body">
-              <h3>Entrega y soporte ágil</h3>
-            </div>
+            <div class="body"><h3>Entrega y soporte ágil</h3></div>
           </article>
         </div>
       </div>
@@ -405,16 +293,8 @@ En Master Tornillos nos especializamos en proveer soluciones en tornillería par
           <div class="panel">
             <h2 id="sec-ventas">Soluciones en fijación</h2>
             <p>
-             
-Cuando hablamos de tipos de fijaciones, primero pensaremos en tornillos, Los tornillos son fijaciones metálicas que tienen un vástago roscado, que se acciona girando. Las roscas impiden que el tornillo se salga. Sus vástagos roscados les confieren una fuerza de sujeción duradera y, a diferencia de un tornillo, no necesitan nada para mantenerse en su sitio. Entre los tornillos se incluyen los siguientes tipos:
-
-    Tornillo hexagonal G5
-    Tornillo hexagonal G8
-    Tornillo A325
-    Tornillo A490
-    Tornillos Polser (punta normal y punta de broca)
-    Pernos de anclaje
-
+              Cuando hablamos de tipos de fijaciones, primero pensamos en tornillos. Son fijaciones metálicas con vástago roscado que se acciona girando; las roscas evitan que se suelten y ofrecen sujeción durable. Entre los más usados:
+              <br>— Tornillo hexagonal G5 · Tornillo hexagonal G8 · A325 · A490 · Polser (punta normal y de broca) · Pernos de anclaje.
             </p>
             <div style="display:flex; gap:12px; flex-wrap:wrap">
               <a href="catalogo.html" class="btn dark">Nuestro catálogo</a>
@@ -432,65 +312,23 @@ Cuando hablamos de tipos de fijaciones, primero pensaremos en tornillos, Los tor
         </div>
       </div>
     </section>
-
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-top">
-      <div class="footer-cols">
-        <div>
-          <img src="img/Logo3.png" alt="Master Tornillos" style="height:80px">
-        </div>
-        <div>
-          <h5>HORARIO</h5>
-          <ul>
-            <li>Lunes a Viernes — 8:00 a 17:00</li>
-          </ul>
-        </div>
-        <div>
-          <h5>CONTACTO</h5>
-          <ul>
-            <li>Ciudad de Guatemala</li>
-            <li>Bodega: 5ta calle 1-36, zona 9, Ciudad de Guatemala</li>
-            <li><a href="tel:+50241032992">+502 4103-2992</a> · <a href="mailto:ventas@mastertornillos.com">ventas@mastertornillos.com</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="copyright">
-      © 2025 Todos los derechos reservados. Desarrollado por
-      <a href="https://allevotechnologies.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">Allevo Tech</a>
-    </div>
-  </footer>
+  <!-- Footer desde parcial -->
+  <div data-include="partials/footer.html"></div>
 
-  <!-- WhatsApp flotante -->
-  <a class="fab-wa" id="fabWa" href="https://wa.me/50241032992?text=Hola%20Master%20Tornillos,%20quisiera%20cotizaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
-    <svg width="18" height="18" viewBox="0 0 32 32" fill="#0d3b2e" aria-hidden="true"><path d="M19.11 17.3c-.27-.13-1.58-.78-1.82-.86-.24-.09-.42-.13-.6.13-.18.27-.69.86-.84 1.04-.15.18-.31.2-.58.07-.27-.13-1.15-.42-2.2-1.34-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.11-.54.11-.11.27-.29.4-.44.13-.15.18-.25.27-.42.09-.18.04-.32-.02-.45-.07-.13-.6-1.45-.82-1.99-.22-.53-.45-.46-.6-.46-.16 0-.34-.02-.52-.02s-.48.07-.73.34c-.25.27-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.85.13.18 1.93 2.95 4.68 4.02.65.28 1.16.45 1.56.58.65.2 1.25.17 1.72.1.53-.08 1.58-.65 1.8-1.28.22-.63.22-1.18.16-1.28-.07-.11-.25-.18-.52-.31z"/><path d="M26.7 5.3C23.9 2.5 20.1 1 16 1 7.7 1 1 7.7 1 16c0 2.6.7 5.1 2 7.3L1 31l7.9-2.1c2.1 1.1 4.5 1.7 7.1 1.7 8.3 0 15-6.7 15-15 0-4.1-1.5-7.9-4.3-10.7zm-10.7 24c-2.4 0-4.7-.6-6.7-1.7l-.5-.3-4.7 1.2 1.3-4.6-.3-.5C3.6 21.3 3 18.7 3 16 3 8.8 8.8 3 16 3s13 5.8 13 13-5.8 13-13 13z"/></svg>
-    WhatsApp
-  </a>
+  <!-- Cargador de parciales (maneja burger, link activo, FAB, etc.) -->
+  <script src="assets/partials.js" defer></script>
 
-  <!-- JS -->
+  <!-- Swiper solo en Home -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
   <script>
-    // Burger
-    (function(){
-      var burger = document.getElementById('burger');
-      var menu = document.getElementById('menu');
-      if(burger && menu){
-        burger.addEventListener('click', function(){
-          var open = menu.classList.toggle('is-open');
-          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-      }
-    })();
-
-    // Swiper
-    (function initSwiper(){
-      if(!window.Swiper) return;
-      if(window.homeSwiper && typeof window.homeSwiper.destroy==='function'){
-        try{window.homeSwiper.destroy(true,true);}catch(e){}
+    // Se ejecuta cuando header/footer ya están insertados
+    window.afterPartialsLoaded = function(){
+      if (!window.Swiper) return;
+      if (window.homeSwiper && typeof window.homeSwiper.destroy==='function'){
+        try { window.homeSwiper.destroy(true,true); } catch(e){}
       }
       window.homeSwiper = new Swiper('.swiper-container',{
         loop:true,
@@ -502,36 +340,7 @@ Cuando hablamos de tipos de fijaciones, primero pensaremos en tornillos, Los tor
         paginationClickable:true,
         autoplayDisableOnInteraction:false
       });
-    })();
-
-    // FAB WhatsApp: subir 3× su altura cuando el footer aparece
-    (function(){
-      var fab = document.getElementById('fabWa');
-      var footer = document.querySelector('footer.footer');
-
-      if(!fab || !footer) return;
-
-      function setStickyBottomByHeight(){
-        var h = fab.offsetHeight || 48; // respaldo
-        var rise = (h * 10) ;        // 3x altura + margen
-        fab.style.setProperty('--fab-sticky-bottom', rise + 'px');
-      }
-      setStickyBottomByHeight();
-      window.addEventListener('resize', setStickyBottomByHeight);
-
-      if('IntersectionObserver' in window){
-        var io = new IntersectionObserver(function(entries){
-          entries.forEach(function(entry){
-            if(entry.isIntersecting){
-              fab.classList.add('stick-up');   // aplica bottom dinámico (3x)
-            }else{
-              fab.classList.remove('stick-up');
-            }
-          });
-        }, {root:null, threshold:0.01});
-        io.observe(footer);
-      }
-    })();
+    };
   </script>
 </body>
 </html>

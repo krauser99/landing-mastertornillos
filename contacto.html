@@ -8,23 +8,24 @@
   <link rel="icon" href="img/Logo2.png" type="image/png" />
 
   <style>
-    /* ===== Reset seguro para evitar overflow ===== */
+    /* ===== Reset seguro y variables ===== */
     *,*::before,*::after{ box-sizing: border-box; }
     :root{
       --brand:#F8D448; --brand-ink:#111; --dark:#424242; --muted:#6f6f6f;
-      --line:#e9e9e9; --ring:#e4c438; --bg:#fff;
-      --page-pad: clamp(18px, 6vw, 36px);
+      --line:#e9e9e9; --bg:#fff; --page-pad: clamp(18px, 6vw, 36px);
     }
     html,body{height:100%}
-    html, body{ overflow-x:hidden; } /* clave para eliminar scroll horizontal */
+    html, body{ overflow-x:hidden; }
     body{
       margin:0; display:flex; flex-direction:column; min-height:100vh;
       color:var(--brand-ink); background:var(--bg);
       font-family:'Neue Haas Unica', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, 'Helvetica Neue', Arial, sans-serif;
       -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
     }
-    .main{flex:1 0 auto}
+    main{flex:1 0 auto}
     img,svg,video{max-width:100%; height:auto; display:block}
+
+    /* ===== Utilidades ===== */
     .container{max-width:1120px; width:100%; margin:0 auto; padding:0 var(--page-pad)}
     .section{padding:64px 0}
     h1{font-size:48px; font-weight:700; margin:0}
@@ -35,48 +36,7 @@
     .muted{color:var(--muted)}
     .lead{font-size:18px}
 
-    /* ===== Header + hamburguesa ===== */
-    .header{
-      position:sticky; top:0; z-index:60; background:var(--dark); color:#fff;
-      border-bottom:1px solid rgba(255,255,255,.08);
-    }
-    .nav{
-      display:flex; align-items:center; justify-content:space-between; gap:16px;
-      min-height:68px;
-    }
-    .logo{display:flex; align-items:center; gap:12px}
-    .logo img{height:58px}
-    .logo .logo-m{display:none; height:40px}
-
-    .menu{display:flex; gap:18px; list-style:none; margin:0; padding:0}
-    .menu a{color:#fff; text-decoration:none; font-weight:600; padding:10px 12px; border-radius:10px}
-    .menu a:hover{background:rgba(255,255,255,.08)}
-
-    .burger{
-      display:none; width:44px; height:44px; border-radius:10px; border:1px solid rgba(255,255,255,.18);
-      background:transparent; color:#fff; align-items:center; justify-content:center; cursor:pointer;
-    }
-    .burger:focus-visible{outline:3px solid var(--ring)}
-    .burger .lines{position:relative; width:22px; height:2px; background:#fff; transition:.25s}
-    .burger .lines::before,.burger .lines::after{
-      content:""; position:absolute; left:0; width:22px; height:2px; background:#fff; transition:.25s;
-    }
-    .burger .lines::before{top:-7px}
-    .burger .lines::after{top:7px}
-    .burger[aria-expanded="true"] .lines{background:transparent}
-    .burger[aria-expanded="true"] .lines::before{top:0; transform:rotate(45deg)}
-    .burger[aria-expanded="true"] .lines::after{top:0; transform:rotate(-45deg)}
-
-    .drawer{
-      display:none; background:var(--dark); border-top:1px solid rgba(255,255,255,.12);
-    }
-    .drawer ul{list-style:none; margin:0; padding:12px var(--page-pad) 16px}
-    .drawer a{
-      display:block; padding:12px 10px; color:#fff; text-decoration:none; font-weight:600; border-radius:10px;
-    }
-    .drawer a:hover{background:rgba(255,255,255,.08)}
-
-    /* ===== HERO ===== */
+    /* ===== HERO (solo estilos de esta página) ===== */
     .hero{
       position:relative; overflow:hidden; color:#fff;
       background:
@@ -86,7 +46,7 @@
     .hero .band{position:absolute; inset:0 0 auto 0; height:12px; background:var(--brand)}
     .hero .grid{
       display:grid; grid-template-columns: 1.2fr .8fr; gap:28px;
-      align-items:center; min-height:360px; padding:64px var(--page-pad) 48px; /* padding interno para no salirse */
+      align-items:center; min-height:360px; padding:64px var(--page-pad) 48px;
     }
     .hero .lead{margin-top:10px; color:#e9e9e9}
     .hero .chip{
@@ -104,7 +64,7 @@
       background:linear-gradient(120deg, rgba(255,255,255,.06), transparent 30% 70%, rgba(255,255,255,.06));
     }
 
-    /* ===== Cards ===== */
+    /* ===== Cards de contacto ===== */
     .cards{margin-top:-44px; display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
     .card{
       background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px 20px; text-align:center;
@@ -122,7 +82,7 @@
     .card a:hover{opacity:.85}
 
     /* ===== Wave ===== */
-    .wave{position:relative; height:50px; margin:20px 0 -10px; overflow:hidden;} /* evita desborde */
+    .wave{position:relative; height:50px; margin:20px 0 -10px; overflow:hidden;}
     .wave svg{display:block; width:100%; height:100%}
 
     /* ===== Horario ===== */
@@ -143,133 +103,29 @@
     .btn:hover{filter:saturate(1.05) brightness(1.02)}
     .btn.ghost{background:transparent; color:var(--brand-ink); border-color:var(--brand-ink)}
 
-    /* ===== Footer ===== */
-    .footer{background:var(--dark); color:#fff}
-    .footer .grid{
-      display:grid; grid-template-columns:1fr 1fr 2fr; gap:24px;
-      padding:44px var(--page-pad); /* añade padding lateral para evitar desborde */
-    }
-    .footer img{height:90px}
-    .footer h4{margin:0 0 10px}
-    .footer ul{list-style:none; margin:0; padding:0}
-    .footer a{color:#fff; text-decoration:none}
-    .footer a:hover{text-decoration:underline}
-    .copyright{border-top:1px solid rgba(255,255,255,.12); text-align:center; padding:16px var(--page-pad)}
-
-    /* ===== FAB WhatsApp (rectangular) ===== */
-    .fab-wa{
-      position:fixed; right:var(--page-pad); bottom:18px; z-index:50;
-      background:#25D366; color:#0d3b2e; border:none; border-radius:12px;
-      padding:12px 16px; font-weight:800; text-decoration:none;
-      box-shadow:0 12px 30px rgba(37,211,102,.35);
-      will-change: bottom;
-    }
-    .fab-wa:hover{filter:brightness(1.05)}
-    .fab-wa svg{vertical-align:-3px}
-    html.avoid-footer .fab-wa{ bottom: calc(18px * 8 + env(safe-area-inset-bottom)) }
+    /* ===== Footer (solo ajustes visuales para el contenedor del parcial) ===== */
+    .footer-wrap{margin-top:0}
 
     /* ===== Responsive ===== */
     @media (max-width:960px){
-      .logo img{display:none}
-      .logo .logo-m{display:block}
-      .burger{display:inline-flex}
-      .menu{display:none}
-      .drawer{display:block}
-      .drawer[hidden]{display:block; height:0; overflow:hidden; opacity:0; transform:translateY(-6px)}
-      .drawer:not([hidden]){height:auto; opacity:1; transform:none; transition:opacity .2s ease, transform .2s ease}
-
       .hero .grid{grid-template-columns:1fr; gap:18px; padding:44px var(--page-pad) 32px}
-      .cards{grid-template-columns:1fr; margin-top:24px} /* quitar negativo en móvil evita rarezas */
+      .cards{grid-template-columns:1fr; margin-top:24px}
       .section{padding:44px 0}
       h1{font-size:36px}
       h2{font-size:28px}
       .lead{font-size:16px}
     }
-    /* === Footer robusto (sin deformarse) === */
-.footer .grid{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(0,1fr)); /* evita estirones raros */
-  gap:24px;
-  padding:44px var(--page-pad);
-  align-items:start;            /* no estira verticalmente las celdas */
-}
-@media (max-width:960px){
-  .footer .grid{ grid-template-columns:1fr; }
-}
-.footer img{
-  max-width:100%;
-  height:auto;                  /* evita deformación por height fijo */
-  max-height:72px;              /* altura visual consistente */
-}
-.footer ul{ list-style:none; margin:0; padding:0; }
-.footer h4{ margin:0 0 10px; }
-
-/* === WhatsApp FAB más pequeño (rectangular) === */
-.fab-wa{
-  position:fixed;
-  right:var(--page-pad);
-  bottom:18px;
-  z-index:50;
-  background:#25D366;
-  color:#0d3b2e;
-  border:none;
-  border-radius:12px;          /* rectangular con esquinas suavizadas */
-  padding:8px 12px;            /* MÁS PEQUEÑO */
-  font-weight:800;
-  font-size:14px;              /* reduce tipografía */
-  text-decoration:none;
-  box-shadow:0 8px 20px rgba(37,211,102,.32);
-}
-.fab-wa svg{
-  width:16px; height:16px;     /* ícono más pequeño */
-  vertical-align:-2px;
-}
-html.avoid-footer .fab-wa{
-  bottom: calc(18px * 18 + env(safe-area-inset-bottom)); /* no toca el footer */
-}
-
-/* === Extras anti-scroll lateral (por si acaso) === */
-img, svg { max-width:100%; height:auto; }
-.wave{ overflow:hidden; }      /* asegura que el SVG no desborde */
   </style>
 </head>
-<body>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container nav">
-      <a class="logo" href="index.html" aria-label="Master Tornillos">
-        <img src="img/Logo3.png" alt="Master Tornillos">
-        <img class="logo-m" src="img/Logo3.png" alt="Master Tornillos">
-      </a>
+<!-- Marca para activar el ítem "Contacto" en el header parcial -->
+<body data-page="contacto">
 
-      <!-- Menú desktop -->
-      <nav aria-label="Principal">
-        <ul class="menu">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="catalogo.html">Productos</a></li>
-          <li><a href="contacto.html" aria-current="page">Contacto</a></li>
-        </ul>
-      </nav>
-
-      <!-- Botón hamburguesa (solo móvil) -->
-      <button class="burger" id="burger" aria-label="Abrir menú" aria-controls="drawer" aria-expanded="false">
-        <span class="lines" aria-hidden="true"></span>
-      </button>
-    </div>
-
-    <!-- Drawer móvil -->
-    <nav class="drawer" id="drawer" hidden>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="catalogo.html">Productos</a></li>
-        <li><a href="contacto.html" aria-current="page">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- Header (parcial) -->
+  <div data-include="partials/header.html"></div>
 
   <!-- Main -->
-  <main class="main">
+  <main>
 
     <!-- HERO -->
     <section class="hero">
@@ -347,79 +203,10 @@ img, svg { max-width:100%; height:auto; }
 
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="grid">
-        <div>
-          <img src="img/Logo3.png" alt="Master Tornillos" />
-          <div style="height:8px"></div>
-        </div>
-        <div>
-          <h4>Horario</h4>
-          <ul><li>Lunes - Viernes — 8:00 a 17:00</li></ul>
-        </div>
-        <div>
-          <h4>Contacto</h4>
-          <ul>
-            <li>Bodega: 5ta calle 1-36, zona 9, Ciudad de Guatemala</li>
-            <li><a href="tel:+50241032992">+502 4103-2992</a></li>
-            <li><a href="mailto:ventas@mastertornillos.com">ventas@mastertornillos.com</a></li>
-            <li><a href="mailto:danielamazariegos@mastertornillos.com">danielamazariegos@mastertornillos.com</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="copyright">
-      © 2025 · Desarrollado por <a href="https://allevotechnologies.com/" target="_blank" rel="noopener">Allevo Tech</a>
-    </div>
-  </footer>
+  <!-- Footer (parcial) -->
+  <div class="footer-wrap" data-include="partials/footer.html"></div>
 
-  <!-- WhatsApp flotante -->
-  <a class="fab-wa" href="https://wa.me/50241032992?text=Hola%20Master%20Tornillos,%20quisiera%20cotizaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
-    <svg width="18" height="18" viewBox="0 0 32 32" fill="#0d3b2e" aria-hidden="true"><path d="M19.11 17.3c-.27-.13-1.58-.78-1.82-.86-.24-.09-.42-.13-.6.13-.18.27-.69.86-.84 1.04-.15.18-.31.2-.58.07-.27-.13-1.15-.42-2.2-1.34-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.11-.54.11-.11.27-.29.4-.44.13-.15.18-.25.27-.42.09-.18.04-.32-.02-.45-.07-.13-.6-1.45-.82-1.99-.22-.53-.45-.46-.6-.46-.16 0-.34-.02-.52-.02s-.48.07-.73.34c-.25.27-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.85.13.18 1.93 2.95 4.68 4.02.65.28 1.16.45 1.56.58.65.2 1.25.17 1.72.1.53-.08 1.58-.65 1.8-1.28.22-.63.22-1.18.16-1.28-.07-.11-.25-.18-.52-.31z"/><path d="M26.7 5.3C23.9 2.5 20.1 1 16 1 7.7 1 1 7.7 1 16c0 2.6.7 5.1 2 7.3L1 31l7.9-2.1c2.1 1.1 4.5 1.7 7.1 1.7 8.3 0 15-6.7 15-15 0-4.1-1.5-7.9-4.3-10.7zm-10.7 24c-2.4 0-4.7-.6-6.7-1.7l-.5-.3-4.7 1.2 1.3-4.6-.3-.5C3.6 21.3 3 18.7 3 16 3 8.8 8.8 3 16 3s13 5.8 13 13-5.8 13-13 13z"/></svg>
-    &nbsp; WhatsApp
-  </a>
-
-  <!-- JS: hamburguesa + elevar FAB al tocar footer -->
-  <script>
-    (function(){
-      // Hamburguesa
-      var burger = document.getElementById('burger');
-      var drawer = document.getElementById('drawer');
-      if(burger && drawer){
-        burger.addEventListener('click', function(){
-          var open = this.getAttribute('aria-expanded') === 'true';
-          this.setAttribute('aria-expanded', String(!open));
-          drawer.hidden = open; // alterna
-          if(!open){
-            var firstLink = drawer.querySelector('a');
-            firstLink && firstLink.focus({preventScroll:true});
-          }
-        });
-        drawer.addEventListener('click', function(e){
-          var a = e.target.closest('a');
-          if(!a) return;
-          burger.setAttribute('aria-expanded','false');
-          drawer.hidden = true;
-        });
-        document.addEventListener('keydown', function(e){
-          if(e.key === 'Escape' && burger.getAttribute('aria-expanded')==='true'){
-            burger.setAttribute('aria-expanded','false');
-            drawer.hidden = true;
-          }
-        });
-      }
-
-      // Elevar FAB al acercarse al footer
-      var footer = document.querySelector('footer');
-      if(footer && 'IntersectionObserver' in window){
-        var io = new IntersectionObserver(function(entries){
-          document.documentElement.classList.toggle('avoid-footer', entries[0].isIntersecting);
-        }, {threshold: 0.01});
-        io.observe(footer);
-      }
-    })();
-  </script>
+  <!-- Carga de parciales (inserta header/footer, maneja burger/FAB y link activo) -->
+  <script src="assets/partials.js" defer></script>
 </body>
 </html>

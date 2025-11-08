@@ -6,67 +6,19 @@
   <title>Catálogo – Master Tornillos</title>
   <meta name="description" content="Catálogo de tornillos, tuercas, arandelas, anclajes y brocas: métrico y estándar. Venta, asesoría y suministro de accesorios." />
   <link rel="icon" href="img/Logo2.png" type="image/png" />
+
   <style>
     :root{
-      --brand-yellow:#F8D448; --dark:#424242; --muted:#6f6f6f; --cta:#128c7e;
+      --brand-yellow:#F8D448; --muted:#6f6f6f; --cta:#128c7e;
       --stroke:#ececec; --card:#ffffff; --ink:#111; --chip:#f4f4f4;
     }
     html,body{height:100%}
     body{
-      margin:0;display:flex;flex-direction:column;min-height:100vh;
-      color:var(--ink);background:#fff;
-      font-family:'Neue Haas Unica',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
+      margin:0;display:flex;flex-direction:column;min-height:110vh;
+      color:var(--ink);background:#ffffffe8;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,sans-serif;
     }
     main{flex:1 0 auto}
-
-    /* Header fijo */
-    .header{
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: var(--dark);
-      color:#fff;
-      border-bottom: 1px solid rgba(255,255,255,.08);
-    }
-    .navigation{
-      display:flex;align-items:center;justify-content:space-between;
-      padding:10px 18px;max-width:1120px;margin:0 auto;gap:12px;
-    }
-    .logo img{height:58px; display:block}
-
-    /* Menú desktop */
-    .header-menu{display:flex;gap:18px;list-style:none;margin:0;padding:0}
-    .header-menu a{color:#fff;text-decoration:none;font-weight:600;padding:10px 12px;border-radius:10px}
-    .header-menu a:hover{background:rgba(255,255,255,.08)}
-
-    /* Burger (móvil) */
-    .burger{
-      display:none;width:42px;height:42px;border-radius:10px;
-      background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);
-      align-items:center;justify-content:center;cursor:pointer;
-    }
-    .burger span,.burger span::before,.burger span::after{
-      content:"";display:block;width:20px;height:2px;background:#fff;border-radius:2px;position:relative
-    }
-    .burger span::before{position:absolute;top:-6px}
-    .burger span::after {position:absolute;top: 6px}
-
-    @media (max-width:960px){
-      .logo img{height:48px}
-      .burger{display:flex}
-      .navigation{padding:8px 14px}
-      .navigation nav{margin-left:auto}
-      .header-menu{
-        position:absolute;top:100%;left:0;right:0;
-        display:none;flex-direction:column;gap:0;
-        background:#333;border-bottom:1px solid rgba(255,255,255,.12);padding:6px
-      }
-      .header-menu.is-open{display:flex}
-      .header-menu li a{display:block;padding:12px 14px}
-    }
-
-    html{ scroll-padding-top:80px }
-    section[id]{ scroll-margin-top:80px }
 
     /* Hero */
     .hero-mini{background:var(--brand-yellow);padding:48px 16px;text-align:center}
@@ -126,15 +78,9 @@
       grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
       gap:18px
     }
-    @media (max-width:900px){
-      .grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
-    }
-    @media (max-width:560px){
-      .grid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))}
-    }
-    @media (max-width:380px){
-      .grid{grid-template-columns:1fr}
-    }
+    @media (max-width:900px){ .grid{grid-template-columns:repeat(auto-fill,minmax(200px,1fr))} }
+    @media (max-width:560px){ .grid{grid-template-columns:repeat(auto-fill,minmax(170px,1fr))} }
+    @media (max-width:380px){ .grid{grid-template-columns:1fr} }
 
     /* Cards */
     .card{
@@ -156,75 +102,45 @@
       .card h3{font-size:15px}
       .pill{width:100%;text-align:center}
     }
+    /* Quita el espaciador del header en Catálogo */
+body[data-page="productos"]{
+  padding-top: 1 !important;
+}
 
-    /* Footer */
-    .footer{background:var(--dark);color:#fff}
-    .footer .container{padding:40px 16px}
-    .footer .row{display:grid;grid-template-columns:1fr 1fr 2fr;gap:24px}
-    .footer-item img{height:90px;display:block;margin-inline:auto}
-    .footer h5{margin:0 0 10px}
-    .footer ul{list-style:none;padding:0;margin:0}
-    .footer a{color:#fff;text-decoration:none}
-    .footer a:hover{text-decoration:underline}
-    .copyright{border-top:1px solid rgba(255,255,255,.12);padding:16px 0;text-align:center}
-    @media (max-width:960px){ .footer .row{grid-template-columns:1fr} }
+/* === Normaliza la altura del header SOLO en Productos === */
+body[data-page="productos"]{
+  /* usa los mismos altos que en Home */
+  --header-h-desktop: 68px;
+  --header-h-mobile: 58px;
+}
 
-    /* FAB WhatsApp */
-    .fab-wa{
-      position:fixed; right:18px; bottom:calc(18px + env(safe-area-inset-bottom)); z-index:60;
-      background:#25D366; color:#0d3b2e; border:none; border-radius:999px;
-      padding:12px 16px; font-weight:800; text-decoration:none;
-      box-shadow:0 12px 30px rgba(37,211,102,.35);
-    }
-    .fab-wa:hover{filter:brightness(1.05)}
-    .fab-wa svg{vertical-align:-3px}
+/* fuerza esas alturas en la barra del header */
+body[data-page="productos"] .as-header       { height: var(--header-h-desktop); }
+body[data-page="productos"] .as-header .as-bar{ min-height: var(--header-h-desktop); }
 
-    /* Circular y pequeño SOLO en responsive */
+/* evita que la tipografía o el logo “infle” la altura */
+body[data-page="productos"] .as-header *{ line-height: 1; }
+body[data-page="productos"] .as-header img{ max-height: calc(var(--header-h-desktop) - 20px); }
+
 @media (max-width: 960px){
-  .fab-wa{
-    width: 46px;
-    height: 46px;
-    padding: 0;
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    font-size: 0;               /* oculta texto directo si quedara */
-  }
-  .fab-wa .wa-text{ display:none }  /* oculta el label en móvil */
-  .fab-wa svg{ width:22px; height:22px; vertical-align:0 }
+  body[data-page="productos"] .as-header        { height: var(--header-h-mobile); }
+  body[data-page="productos"] .as-header .as-bar{ min-height: var(--header-h-mobile); }
+  body[data-page="productos"] .as-header img    { max-height: calc(var(--header-h-mobile) - 10px); }
 }
 
-/* Evitar que baje al tocar el footer */
-.fab-wa{
-  position: fixed;
-  right: 18px;
-  bottom: calc(18px + env(safe-area-inset-bottom));
-  z-index: 60;
-  transition: bottom .18s ease;           /* animación suave */
+/* por si el parcial añade un borde, lo unificamos */
+body[data-page="productos"] .as-header{
+  border-bottom: 1px solid rgba(255,255,255,.08); /* o el que uses en Home */
 }
-.fab-wa.avoid-footer{
-  bottom: calc(18px * 27 + env(safe-area-inset-bottom)); /* 144px aprox */
-}
-
+   
   </style>
 </head>
-<body>
-  <!-- Header -->
-  <header class="header">
-    <div class="navigation">
-      <a href="index.html" class="logo" aria-label="Master Tornillos"><img src="img/Logo3.png" alt="Master Tornillos" /></a>
 
-      <nav>
-        <ul class="header-menu" id="headerMenu">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="catalogo.html" aria-current="page">Productos</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
+<!-- marca para activar "Productos" en el header parcial -->
+<body data-page="productos">
 
-      <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
-    </div>
-  </header>
+  <!-- Header (parcial) -->
+  <div data-include="partials/header.html"></div>
 
   <!-- Hero -->
   <section class="hero-mini">
@@ -271,6 +187,7 @@
           </div>
           <button class="btn-reset" id="resetBtn">Limpiar filtros</button>
         </div>
+
 
         <!-- SECCIONES POR CATEGORÍA -->
         <div id="sections">
@@ -402,7 +319,7 @@
           <!-- ===== Allen ===== -->
           <section class="cat-section" id="sec-allen" data-section="allen">
             <div class="cat-header">
-              <h3 class="cat-title">Allen</h3>
+              <h3 class="cat-title">Tornillo Allen</h3>
               <span class="cat-count" data-count>0</span>
             </div>
             <div class="grid">
@@ -447,7 +364,7 @@
           <!-- ===== Hex Americano ===== -->
           <section class="cat-section" id="sec-hex_americano" data-section="hex_americano">
             <div class="cat-header">
-              <h3 class="cat-title">Hexagonal Americano</h3>
+              <h3 class="cat-title">Tornillo Hexagonal Americano</h3>
               <span class="cat-count" data-count>0</span>
             </div>
             <div class="grid">
@@ -485,7 +402,7 @@
           <!-- ===== Hex Métrico ===== -->
           <section class="cat-section" id="sec-hex_metrico" data-section="hex_metrico">
             <div class="cat-header">
-              <h3 class="cat-title">Hexagonal Métrico</h3>
+              <h3 class="cat-title">Tornillo Hexagonal Métrico</h3>
               <span class="cat-count" data-count>0</span>
             </div>
             <div class="grid">
@@ -697,53 +614,14 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer footer-style-1">
-    <div class="container">
-      <div class="row">
-        <div class="footer-item"><img src="img/Logo3.png" alt="Master Tornillos"></div>
-        <div class="footer-item">
-          <h5 class="h5">HORARIO</h5>
-          <ul class="list-style-1 ul-list">
-            <li><div class="flex-wrap"><span>Lunes - Viernes</span> — <b>8:00 a 17:00</b></div></li>
-          </ul>
-        </div>
-        <div class="footer-item">
-          <h5 class="h5">CONTACTO</h5>
-          <ul class="list-style-2 ul-list">
-            <li>Ciudad de Guatemala</li>
-            <li>Bodega: 5ta calle 1-36, zona 9, Ciudad de Guatemala</li>
-            <li><a href="tel:+50241032992" class="link-hover">+502 4103-2992</a></li>
-            <li><a href="mailto:ventas@mastertornillos.com" class="link-hover">ventas@mastertornillos.com</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="copyright">
-      © 2025 Todos los derechos reservados. Desarrollado por
-      <a href="https://allevotechnologies.com" target="_blank" rel="noopener">Allevo-Tech</a>
-    </div>
-  </footer>
+  <!-- Footer (parcial) -->
+  <div data-include="partials/footer.html"></div>
 
-  <!-- WhatsApp flotante -->
- <a class="fab-wa" id="waFab" href="https://wa.me/50241032992?text=Hola%20Master%20Tornillos,%20quisiera%20cotizaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
-  <svg width="18" height="18" viewBox="0 0 32 32" fill="#0d3b2e" aria-hidden="true"><path d="M19.11 17.3c-.27-.13-1.58-.78-1.82-.86-.24-.09-.42-.13-.6.13-.18.27-.69.86-.84 1.04-.15.18-.31.2-.58.07-.27-.13-1.15-.42-2.2-1.34-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.11-.54.11-.11.27-.29.4-.44.13-.15.18-.25.27-.42.09-.18.04-.32-.02-.45-.07-.13-.6-1.45-.82-1.99-.22-.53-.45-.46-.6-.46-.16 0-.34-.02-.52-.02s-.48.07-.73.34c-.25.27-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.85.13.18 1.93 2.95 4.68 4.02.65.28 1.16.45 1.56.58.65.2 1.25.17 1.72.1.53-.08 1.58-.65 1.8-1.28.22-.63.22-1.18.16-1.28-.07-.11-.25-.18-.52-.31z"/><path d="M26.7 5.3C23.9 2.5 20.1 1 16 1 7.7 1 1 7.7 1 16c0 2.6.7 5.1 2 7.3L1 31l7.9-2.1c2.1 1.1 4.5 1.7 7.1 1.7 8.3 0 15-6.7 15-15 0-4.1-1.5-7.9-4.3-10.7zm-10.7 24c-2.4 0-4.7-.6-6.7-1.7l-.5-.3-4.7 1.2 1.3-4.6-.3-.5C3.6 21.3 3 18.7 3 16 3 8.8 8.8 3 16 3s13 5.8 13 13-5.8 13-13 13z"/></svg>
-  <span class="wa-text">&nbsp; WhatsApp</span>
-</a>
+  <!-- Loader de parciales (inserta header/footer, maneja burger/FAB, resalta link activo) -->
+  <script src="assets/partials.js" defer></script>
 
+  <!-- Lógica del catálogo -->
   <script>
-    // Burger para móvil
-    (function(){
-      var burger = document.getElementById('burger');
-      var menu = document.getElementById('headerMenu');
-      if(burger && menu){
-        burger.addEventListener('click', function(){
-          var open = menu.classList.toggle('is-open');
-          burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-        });
-      }
-    })();
-
     (function(){
       const sectionsWrap = document.getElementById('sections');
       const sectionEls = Array.from(sectionsWrap.querySelectorAll('.cat-section'));
@@ -824,35 +702,10 @@
         card.querySelectorAll('a.pill.wa').forEach(a => { a.href = url; });
       });
 
-      // FAB genérico
-      const fab = document.getElementById('waFab');
-      if (fab) fab.href = `https://wa.me/${PHONE}?text=${encodeURIComponent('Hola Master Tornillos, quisiera una cotización')}`;
-
       // init
       sortInsideSections();
       render();
     })();
   </script>
-  <script>
-  // Eleva el FAB cuando el footer entra en viewport (no se pega al borde inferior)
-  (function(){
-    var fab = document.getElementById('waFab');
-    var footer = document.querySelector('footer.footer');
-    if(!fab || !footer || !('IntersectionObserver' in window)) return;
-
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(entry){
-        if(entry.isIntersecting){
-          fab.classList.add('avoid-footer');
-        }else{
-          fab.classList.remove('avoid-footer');
-        }
-      });
-    }, { root: null, threshold: 0.01 });
-
-    io.observe(footer);
-  })();
-</script>
-
 </body>
 </html>

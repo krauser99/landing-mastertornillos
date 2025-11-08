@@ -1,0 +1,74 @@
+<style>
+  /* ====== ESTILOS DEL HEADER (válidos para todas las páginas) ====== */
+  :root{
+    /* altura usada para compensar el header fijo */
+    --header-h-desktop: 82px;
+    --header-h-mobile: 70px;
+  }
+  /* Compensación del header fijo (aplica en todas las páginas) */
+  body{ padding-top: var(--header-h-desktop); }
+  @media (max-width:880px){
+    body{ padding-top: var(--header-h-mobile); }
+  }
+
+  .header{
+    position:fixed; inset:0 0 auto 0; z-index:1000;
+    background:#424242; color:#ffffff;
+    box-shadow:none; border-bottom:none;
+  }
+  .nav{
+    max-width:1200px; margin:0 auto; padding:10px 16px;
+    display:flex; align-items:center; gap:12px;
+  }
+  .logo img{height:58px}
+  nav.primary-nav{margin-left:auto;}
+  .menu{list-style:none; display:flex; gap:18px; margin:0; padding:0}
+  .menu a{
+    color:#fff; text-decoration:none; font-weight:600;
+    padding:10px 12px; border-radius:10px; transition:background .2s ease, transform .2s ease;
+  }
+  .menu a:hover{ background:rgba(255,255,255,.08); transform:translateY(-1px) }
+  .menu a.is-active{ background:rgba(255,255,255,.14); }
+
+  .burger{
+    margin-left:8px; display:none; width:42px; height:42px; border-radius:10px;
+    background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
+    align-items:center; justify-content:center; cursor:pointer;
+  }
+  .burger span, .burger span::before, .burger span::after{
+    content:""; display:block; width:20px; height:2px; background:#fff; border-radius:2px; position:relative
+  }
+  .burger span::before{ position:absolute; top:-6px }
+  .burger span::after{ position:absolute; top:6px }
+
+  @media (max-width:880px){
+    .logo img{height:48px}
+    .burger{display:flex}
+    .nav{padding:8px 12px; justify-content:space-between;}
+    nav.primary-nav{margin-left:0;}
+    .menu{
+      position:absolute; top:100%; left:0; right:0; background:#333; border-bottom:none;
+      display:none; flex-direction:column; gap:0; padding:6px;
+    }
+    .menu.is-open{display:flex}
+    .menu li a{ display:block; padding:12px 14px; }
+  }
+</style>
+
+<header class="header">
+  <div class="nav">
+    <a href="index.html" class="logo" aria-label="Master Tornillos">
+      <img src="img/Logo3.png" alt="Master Tornillos">
+    </a>
+
+    <nav class="primary-nav">
+      <ul class="menu" id="menu">
+        <li><a href="index.html" data-page="inicio">Inicio</a></li>
+        <li><a href="catalogo.html" data-page="productos">Productos</a></li>
+        <li><a href="contacto.html" data-page="contacto">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
+  </div>
+</header>

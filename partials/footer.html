@@ -1,0 +1,107 @@
+<style>
+  /* ====== ESTILOS DEL FOOTER (y botón de WhatsApp) ====== */
+  :root{
+    --fab-sticky-bottom: 96px; /* altura de elevación del FAB cuando el footer es visible */
+  }
+
+  footer{ background:#424242; color:#fff }
+  .footer-top{ padding:42px 16px }
+  .footer-cols{
+    display:grid;
+    grid-template-columns:2fr 2fr 2fr; /* 3 secciones como el original */
+    gap:24px;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  .footer-cols > div:first-child{
+    display:flex; justify-content:center; align-items:flex-start; text-align:center;
+  }
+  .footer h5{ margin:0 0 12px }
+  .footer ul{ list-style:none; padding:0; margin:0 }
+  .footer a{ color:#fff; text-decoration:none }
+  .footer a:hover{ text-decoration:underline }
+  .copyright{ border-top:1px solid rgba(255,255,255,.12); padding:16px 0; text-align:center }
+
+  @media (max-width:900px){
+    .footer-cols{ grid-template-columns:1fr; }
+  }
+
+  /* ===== FAB WhatsApp ===== */
+  .fab-wa{
+    position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom)); z-index:60;
+    background:#25D366; color:#0d3b2e; border:none; border-radius:999px;
+    padding:12px 16px; font-weight:800; text-decoration:none;
+    box-shadow:0 12px 30px rgba(37,211,102,.35);
+    display:inline-flex; align-items:center; gap:8px;
+    transition:bottom .18s ease, transform .12s ease, box-shadow .12s ease;
+    line-height:1;
+  }
+  .fab-wa:hover{ filter:brightness(1.05); transform:translateY(-2px); box-shadow:0 16px 36px rgba(37,211,102,.38); }
+  .fab-wa.stick-up{ bottom:var(--fab-sticky-bottom) !important; } /* se eleva para no tapar footer */
+  .fab-wa svg{ width:18px; height:18px; vertical-align:-3px }
+
+  /* ——— Responsive: solo ícono y tamaño pequeño ——— */
+  @media (max-width:640px){
+    .fab-wa{
+      padding:10px;                 /* más pequeño */
+      width:44px; height:44px;      /* botón compacto */
+      justify-content:center; gap:0;
+    }
+    .fab-wa .label{ display:none; } /* oculta texto, deja solo el logo */
+    .fab-wa svg{ width:20px; height:20px; vertical-align:0; }
+  }
+</style>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-cols">
+      <div>
+        <img src="img/Logo3.png" alt="Master Tornillos" style="height:80px;max-width:100%;object-fit:contain">
+      </div>
+      <div>
+        <h5>HORARIO</h5>
+        <ul><li>Lunes a Viernes — 8:00 a 17:00</li></ul>
+      </div>
+      <div>
+        <h5>CONTACTO</h5>
+        <ul>
+          <li>Ciudad de Guatemala</li>
+          <li>Bodega: 5ta calle 1-36, zona 9, Ciudad de Guatemala</li>
+          <li>
+            <a href="tel:+50241032992">+502 4103-2992</a> ·
+            <a href="mailto:ventas@mastertornillos.com">ventas@mastertornillos.com</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    © 2025 Todos los derechos reservados. Desarrollado por
+    <a href="https://allevotechnologies.com" target="_blank" rel="noopener" style="color:#fff;text-decoration:underline">Allevo Tech</a>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a class="fab-wa" id="fabWa"
+   href="https://wa.me/50241032992?text=Hola%20Master%20Tornillos,%20necesito%20una%20cotizaci%C3%B3n"
+   target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#0d3b2e" aria-hidden="true">
+    <path d="M19.11 17.3c-.27-.13-1.58-.78-1.82-.86-.24-.09-.42-.13-.6.13-.18.27-.69.86-.84 1.04-.15.18-.31.2-.58.07-.27-.13-1.15-.42-2.2-1.34-.81-.72-1.36-1.61-1.52-1.88-.16-.27-.02-.41.11-.54.11-.11.27-.29.4-.44.13-.15.18-.25.27-.42.09-.18.04-.32-.02-.45-.07-.13-.6-1.45-.82-1.99-.22-.53-.45-.46-.6-.46-.16 0-.34-.02-.52-.02s-.48.07-.73.34c-.25.27-.96.94-.96 2.29 0 1.35.98 2.66 1.12 2.85.13.18 1.93 2.95 4.68 4.02.65.28 1.16.45 1.56.58.65.2 1.25.17 1.72.1.53-.08 1.58-.65 1.8-1.28.22-.63.22-1.18.16-1.28-.07-.11-.25-.18-.52-.31z"/>
+    <path d="M26.7 5.3C23.9 2.5 20.1 1 16 1 7.7 1 1 7.7 1 16c0 2.6.7 5.1 2 7.3L1 31l7.9-2.1c2.1 1.1 4.5 1.7 7.1 1.7 8.3 0 15-6.7 15-15 0-4.1-1.5-7.9-4.3-10.7zm-10.7 24c-2.4 0-4.7-.6-6.7-1.7l-.5-.3-4.7 1.2 1.3-4.6-.3-.5C3.6 21.3 3 18.7 3 16 3 8.8 8.8 3 16 3s13 5.8 13 13-5.8 13-13 13z"/>
+  </svg>
+  <span class="label">WhatsApp</span>
+</a>
+
+<script>
+  // Eleva el FAB cuando el footer es visible para que no lo tape.
+  (function(){
+    var fab = document.getElementById('fabWa');
+    var foot = document.querySelector('footer.footer');
+    if(!fab || !foot || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function(entries){
+      if(entries[0].isIntersecting){ fab.classList.add('stick-up'); }
+      else { fab.classList.remove('stick-up'); }
+    }, {threshold: 0.01});
+    io.observe(foot);
+  })();
+</script>
